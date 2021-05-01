@@ -1,0 +1,65 @@
+public class Alumno{
+	
+	//ATRIBUTOS
+	private String rut;
+	private String nombre;
+	private String email;
+	private int telefono;
+	private String asignaturas[cantAsignaturas];
+	private int evaluaciones[cantEvaluaciones];
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+	
+	//CONSTRUCTOR
+  	public class Alumno(String rut, String nombre, String email, int telefono, int cantAsignaturas, int cantEvaluaciones){
+		this.rut = rut;
+		this.nombre = nombre;
+		this.email = email;
+		this.telefono = telefono;
+		this.asignaturas = new asignaturas[cantAsignaturas];
+		this.evaluaciones = new evaluaciones[cantEvaluaciones];
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//GETTERS
+	public String getRut(){
+		return rut;
+	}
+
+	public String getNombre(){
+		return nombre;
+	}
+
+	public String getEmail(){
+		return email;
+	}
+
+	public String getTelefono(){
+		return telefono;
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//SETTERS
+	public void setNombre(String nombre){
+		this.nombre = nombre;
+	}
+
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public void setTelefono(String telefono){
+		this.telefono = telefono
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//METODOS
+
+
+
+
+
+}

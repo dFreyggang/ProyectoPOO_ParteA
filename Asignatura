@@ -1,0 +1,43 @@
+public class Asignatura{
+
+	//ATRIBUTOS
+	private int codigo;
+	private String nombre;
+	private int[cantDocentes] docentes;
+	private int[cantAlumnos] alumnos; 
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+    //CONSTRUCTOR
+    public Asignatura(int codigo, String nombre, int docentes, int alumnos){
+	    this.codigo = codigo;
+	    this.nombre = nombre;
+	    this.docentes = new docentes[cantDocentes];
+	    this.alumnos = new alumnos[cantAlumnos];
+    }
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//GETTERS
+	public int getCodigo(){
+		return codigo;
+	}
+	public String getNombre(){
+		return nombre;
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//SETTERS
+	public void setCodigo(int codigo){
+		this.codigo=codigo;
+	}
+	public void setNombre(String nombre){
+		this.nombre=nombre;
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//METODOS
+
+
+	
+}    

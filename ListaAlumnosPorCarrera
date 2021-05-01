@@ -1,0 +1,5 @@
+public class ListaAlumnoCarrera{
+	private Alumno alumno[][];
+	public class Alumno(int codigo, )
+	
+}

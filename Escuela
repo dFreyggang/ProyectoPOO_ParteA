@@ -1,0 +1,44 @@
+public class Escuela {
+
+	//ATRIBUTOS
+	private int codigo;
+	private String nombre;
+	private String[cantCarreras] carreras;
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//CONSTRUCTOR
+	public Escuela(int codigo, String nombre,String carreras){
+		this.codigo=codigo;
+		this.nombre = nombre;
+		this.carreras = new carreras[cantCarreras];
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+	
+	//GETTERS
+	public int getCodigo(){
+		return codigo;
+	}
+	public String getNombre(){
+		return nombre;
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+	
+	// SETTERS
+	public void setCodigo(int codigo){
+		this.codigo=codigo;
+	}
+
+	public void setNombre(String nombre){
+		this.nombre=nombre;
+	}
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//METODOS
+}
+
+
+

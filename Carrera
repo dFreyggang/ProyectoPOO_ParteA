@@ -1,0 +1,41 @@
+public class Carrera{
+
+	//ATRIBUTOS
+	private int codigo;
+	private String nombre;
+	private int[cantAlumnos] alumnos
+	private String[cantAsignaturas] asignaturas;
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//CONSTRUCTOR
+	public Carrera(int codigo, String nombre, int alumnos, String asignaturas){
+		this.codigo= codigo;
+		this.nombre = nombre;
+		this.alumnos = new alumnos[cantAlumnos];
+		this.asignaturas = new asignaturas[cantAsignaturas];
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//GETTERS
+	public int getCodigo(){
+		return codigo;
+	}
+	public String getNombre(){
+		return nombre;
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//SETTERS
+	public void setCodigo(int codigo){
+		this.codigo=codigo;
+	}
+	public void setNombre(String nombre){
+		this.nombre=nombre;
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//METODOS
+	
+}  

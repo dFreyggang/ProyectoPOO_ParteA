@@ -1,0 +1,39 @@
+public class Universidad{
+	
+	//ATRIBUTOS
+	private String nombreUniversidad;
+	private String nombreRector;
+	private int[cantEscuelas] escuelas;
+	
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//CONSTRUCTOR
+	public Universidad(String nombreUniversidad, String nombreRector, int cantEscuelas){
+		this.nombreUniversidad = nombreUniversidad;
+		this.nombreRector = nombreRector;
+		this.escuelas = new escuelas[cantEscuelas];
+	}
+
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//GETTERS
+	public String getNombreUniversidad(){
+		return nombreUniversidad;
+	}
+	public String getNombreRector(){
+		return nombreRector;
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//SETTERS
+	public void setNombreUniversidad(String nombreUniversidad){
+		this.nombreUniversidad=nombreUniversidad;
+	}
+	public void setNombreRector(String getNombreRector){
+		this.nombreRector=nombreRector;
+	}
+	//-------------------------------------------------------------------------------------------------------------------------------------//
+
+	//METODOS
+	
+}
