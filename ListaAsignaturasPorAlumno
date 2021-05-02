@@ -1,0 +1,52 @@
+public class ListaAsignaturaPorAlumno {
+    
+    private Asignatura listaAsignatura[]; //NO COMPACTA
+    
+    public ListaAsignaturaPorAlumno (int cantAsignaturas) {
+
+        this.listaAsignatura = new Asignatura[cantAsignaturas];
+    }
+
+
+    public boolean buscarAsignatura (int codigo) {
+        for (int i = 0; i < listaAsignatura.length; i++) {
+            if (listaAsignatura[i] != null && listaAsignatura[i].getCodigo() == codigo) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean agregarAsignatura (Asignatura nuevo) {
+        if (nuevo != null && buscarAsignatura(nuevo.getCodigo()) == false) {
+            for (int i = 0; i < listaAsignatura.length; i++) {
+                if (listaAsignatura[i] == null) {
+                    listaAsignatura[i] = nuevo;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarAsignatura (int codigo) {
+        for (int i = 0; i < listaAsignatura.length; i++) {
+            if (listaAsignatura[i] != null && listaAsignatura[i].getCodigo() == codigo) {
+                listaAsignatura[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public listaAsignatura quitarAsignatura (int codigo) {
+        for (int i = 0; i < listaAsignatura.length; i++) {
+            if (listaAsignatura[i] != null && listaAsignatura[i].getCodigo() == codigo) {
+                listaAsignatura[i] = null;
+                return eliminado;
+            }
+        }
+        return null;
+    }
+
+}

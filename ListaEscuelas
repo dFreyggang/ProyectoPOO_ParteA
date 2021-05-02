@@ -1,0 +1,8 @@
+public class ListaEscuelas {
+
+    private Escuela listaEscuelas[];
+
+    public ListaEscuelas (int cantEscuelas) {
+        this.listaEscuelas = new Escuela[cantEscuelas];
+    }
+}

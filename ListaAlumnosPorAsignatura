@@ -1,15 +1,8 @@
-public class ListaAlumnoAsignatura{
-	
-	//ATRIBUTOS
-	private Alumno alumno[]; //no compacta
-  
-	//CONSTRUCTOR 
-  	public class ListaAlumnoAsignatura(int codigo){
-    	this.alumno = new Alumno alumno[codigo]
-  	}
+public class ListaAlumnosPorAsignatura {
 
-	//GETTERS
+    private Alumno listaAlumnos[]; //NO COMPACTA
 
-	//SETTERS
-	
+    public ListaAlumnosPorAsignatura (int cantAlumnos) {
+        this.listaAlumnos = new Alumno[cantAlumnos];
+    }
 }

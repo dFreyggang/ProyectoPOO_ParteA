@@ -1,5 +1,10 @@
-public class ListaAlumnoCarrera{
-	private Alumno alumno[][];
-	public class Alumno(int codigo, )
-	
+public class ListaAlumnosPorCarrera {
+
+    private Alumno listaAlumno[]; //no compacta
+
+    public ListaAlumnosPorCarrera (int cantAlumnos) {
+        this.listaAlumno = new Alumno[cantAlumnos];
+    }
+
+    
 }

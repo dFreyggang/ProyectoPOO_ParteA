@@ -1,0 +1,8 @@
+public class ListaCarreras {
+
+    private Carrera ListaCarreras[];
+
+    public ListaCarreras (int cantCarreras) {
+        this.ListaCarreras = new Carrera[cantCarreras];
+    }
+}
