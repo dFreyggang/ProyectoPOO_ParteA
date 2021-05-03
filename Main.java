@@ -405,7 +405,9 @@ class Main {
 									System.out.println("Ingrese el codigo de la carrera");
 									//mostrarCarreras(codigoEscuela);
 									codigoCarrera = sc.nextInt();
-                                    System.out.println("Ingrese el rut del alumno");
+                                    System.out.println("Ingrese el rut del alumno.");
+									System.out.println("Escribalo con digito verificador y sin puntos ni guion.");
+									System.out.println("Ejemplo: Si el rut es 20.202.020-k, debe ingresar 20202020k");
 									rutAlumno = sc.nextLine();
 									if(RELLENO/*existeAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno)*/){
 										System.out.println("El alumno ya se encuentra registrado en la carrera.");
@@ -415,7 +417,7 @@ class Main {
 										nombreAlumno = sc.nextLine();
 										System.out.println("Ingrese el email del alumno");
 										emailAlumno = sc.nextLine();
-										//agregarAlumnoPorCarrera(codigoEscuela,codigoCarrera);
+										//agregarAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno,nombreAlumno,emailAlumno);
 										System.out.println("Alumno agregado.");
 									}
     
@@ -554,7 +556,10 @@ class Main {
 									//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
 									codigoAsignatura = sc.nextInt();
 									do{
-										System.out.println("Ingrese la nota");
+										System.out.println("Ingrese la nota.");
+										System.out.println("Utilice el simbolo punto (.) para separar los decimales.");
+										System.out.println("Si la nota es un numero entero, ingresela como 'nota.0'.");
+										System.out.println("Ejemplo: Si quiere ingresar una nota=7 debera escribir 7.0");
 										nota = sc.nextFloat();
 									}while(nota<=1.0 && nota>=7.0);
 									//agregarNotas(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,nota);
@@ -593,7 +598,10 @@ class Main {
 									//mostrarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
 									codigoNota = sc.nextInt();
 									do{
-										System.out.println("Ingrese el nuevo valor de la nota");
+										System.out.println("Ingrese el nuevo valor de la nota.");
+										System.out.println("Utilice el simbolo punto (.) para separar los decimales.");
+										System.out.println("Si la nota es un numero entero, ingresela como 'nota.0'.");
+										System.out.println("Ejemplo: Si quiere ingresar una nota=7 debera escribir 7.0");
 										nota = sc.nextFloat();
 									}while(nota<=1.0 && nota>=7.0);
 									//ModificarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,codigoNota,nota);
@@ -682,8 +690,12 @@ class Main {
 										System.out.println("Ingrese el codigo de la asignatura");
 										//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
 										codigoAsignatura = sc.nextInt();
-										System.out.println("Ingrese el promedio de nota que desea buscar. Valores entre 1.0 y 7.0. Recuerde separar los decimales con punto (.)");
-										nota = sc.nextFloat();
+										do{
+											System.out.println("Ingrese el valor del promedio de notas que desea buscar.");
+											System.out.println("Valores permitidos entre 1.0 y 7.0. Recuerde separar los decimales con punto (.)");
+											System.out.println("Ejemplo: Si quiere buscar alumnos con promedio=5 debera escribir 5.0");
+											nota = sc.nextFloat();
+										}while(nota<1.0 || nota>7.0);
 										//mostrarAlumnosConPromedioDeterminado(codigoEscuela,codigoCarrera,codigoAsignatura,nota);
 										break;
 								}
@@ -760,7 +772,7 @@ modificarAsignaturasPorCarrera(codigoEscuela,codigoCarrera,nombreAsignatura)
 eliminarAsignaturaPorCarrera(codigoCarrera,codigoAsignatura)
 mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera)
 existeAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno)
-agregarAlumnoPorCarrera(codigoEscuela,codigoCarrera)
+agregarAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno,nombreAlumno,emailAlumno)
 mostrarAsignaturasPorAlumnoNoInscritas(codigoEscuela,codigoCarrera,codigoAlumno)
 agregarAsignaturaPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura)
 eliminarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura)
