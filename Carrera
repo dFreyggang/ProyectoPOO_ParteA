@@ -2,13 +2,57 @@ public class Carrera {
 
     private int codigo;
     private String nombre;
-    private ListaAlumnosPorCarrera listaAlumnosPorCarrera[]; //NO COMPACTA
-    private ListaAsignaturasPorCarrera listaAsignaturasPorCarrera[]; //NO COMPACTA
+    private ListaAlumnosPorCarrera listaAlumnosPorCarrera;
+    private ListaAsignaturasPorCarrera listaAsignaturasPorCarrera;
 
     public Carrera (int codigo, String nombre, int cantAlumnos, int cantAsignaturas) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.listaAlumnosPorCarrera = new ListaAlumnosPorCarrera[cantAlumnos];
-        this.listaAsignaturasPorCarrera = new ListaAsignaturasPorCarrera[cantAsignaturas];
+        this.listaAlumnosPorCarrera = new ListaAlumnosPorCarrera(cantAlumnos);
+        this.listaAsignaturasPorCarrera = new ListaAsignaturasPorCarrera(cantAsignaturas);
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public  void setNombre (String nombre) {
+        this.nombre = nombre;
+    }
+
+
+//METODOS POR ALUMNO
+    public boolean agregarAsignatura (Asignatura nuevo, String rut) {
+        return listaAlumnosPorCarrera.agregarAsignatura(nuevo, rut);
+    }
+
+    public boolean editarAsignatura (Asignatura nuevo, String rut) {
+        return listaAlumnosPorCarrera.editarAsignatura(nuevo, rut);
+    }
+
+    public boolean eliminarAsignatura (Asignatura nuevo, String rut) {
+        return listaAlumnosPorCarrera.eliminarAsignatura(nuevo, rut);
+    }
+
+
+//METODOS POR ASIGNATURA
+    public boolean agregarAsignatura (Asignatura nuevo) {
+        return listaAsignaturasPorCarrera.agregarAsignatura(nuevo);
+    }
+
+    public boolean editarAsignatura (Asignatura nuevo) {
+        return listaAsignaturasPorCarrera.editarAsignatura(nuevo.getcodigo(), nuevo.getNombre());
+    }
+
+    public boolean eliminarAsignatura (Asignatura nuevo) {
+        return listaAsignaturasPorCarrera.eliminarAsignatura(nuevo.getcodigo());
     }
 }

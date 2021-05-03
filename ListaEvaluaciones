@@ -1,0 +1,27 @@
+public class ListaEvaluaciones{
+
+	private double notasAsignatura[];
+
+	//CONSTRUCTOR
+	public ListaEvaluaciones(int cantNotas){
+		this.notasAsignatura = new double[cantNotas];
+	}
+
+	//METODOS
+	public double PromedioAlumno (){
+
+        double sumaAsignaturas = 0;
+		double promedioAlumno;
+		int contadorNotas = 0;
+		for(int = i; i < contadorNotas; i++) {
+            if (notasAsignatura[i] != null) {
+                sumaAsignaturas += notasAsignatura;
+                contadorNotas++;       
+            }
+        }
+		promedioAlumno = (sumaAsignaturas/contadorNotas);
+		return promedioAlumno;
+	}
+    
+	
+}

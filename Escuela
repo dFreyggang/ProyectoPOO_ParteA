@@ -2,11 +2,39 @@ public class Escuela {
 
     private String nombre;
     private int codigo;
-    private ListaCarreras ListaCarreras[];
+    private ListaCarrera listaCarrera;
 
     public Escuela (String nombre, int codigo, int cantCarreras) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.listaCarreras = new ListaCarreras[cantCarreras];
+        this.listaCarrera = new ListaCarrera(cantCarreras);
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setCodigo (int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setNombre (String nombre) {
+        this.nombre = nombre;
+    }
+
+    public boolean agregarCarrera (Carrera nuevo) {
+        return listaCarrera.agregarCarrera(nuevo);
+    }
+
+    public boolean editarCarrera (Carrera nuevo) {
+        return  listaCarrera.editarCarrera(nuevo.getCodigo(), nuevo.getNombre());
+    }
+
+    public boolean eliminarCarrera (Carrera nuevo) {
+        return listaCarrera.eliminarCarrera(nuevo.getCodigo());
     }
 }

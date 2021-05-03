@@ -1,10 +1,36 @@
 public class ListaAlumnosPorCarrera {
 
-    private Alumno listaAlumno[]; //no compacta
+    private Alumno listaAlumno[]; //COMPACTA
 
     public ListaAlumnosPorCarrera (int cantAlumnos) {
+
         this.listaAlumno = new Alumno[cantAlumnos];
     }
 
-    
+    public boolean agregarAsignatura (Asignatura nuevo, String rut) {
+        for (int i = 0; i < listaAlumno.length && listaAlumno[i] != null; i++) {
+            if (listaAlumno[i].getRut().equals(rut)) {
+                return listaAlumno[i].agregarAsignatura(nuevo);
+            }
+        }
+        return false;
+    }
+
+    public boolean editarAsignatura (Asignatura nuevo, String rut) {
+        for (int i = 0; i < listaAlumno.length && listaAlumno[i] != null; i++) {
+            if (listaAlumno[i].getRut().equals(rut)) {
+                return listaAlumno[i].editarAsignatura(nuevo);
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarAsignatura (Asignatura nuevo, String rut) {
+        for (int i = 0; i < listaAlumno.length && listaAlumno[i] != null; i++) {
+            if (listaAlumno[i].getRut().equals(rut)) {
+                return listaAlumno[i].eliminarAsignatura(nuevo);
+            }
+        }
+        return false;
+    }
 }

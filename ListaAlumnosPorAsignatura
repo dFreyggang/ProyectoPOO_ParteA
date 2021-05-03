@@ -1,8 +1,9 @@
 public class ListaAlumnosPorAsignatura {
 
-    private Alumno listaAlumnos[]; //NO COMPACTA
+    private Alumno listaAlumno[]; //NO COMPACTA
 
     public ListaAlumnosPorAsignatura (int cantAlumnos) {
-        this.listaAlumnos = new Alumno[cantAlumnos];
+        this.listaAlumno = new Alumno[cantAlumnos];
     }
+
 }

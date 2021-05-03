@@ -4,15 +4,31 @@ public class Alumno {
     private String nombre;
     private String email;
     private int telefono;
-    private ListaAsignaturaPorAlumno listaAsignatura[]; //NO COMPACTA
-    private ListaEvaluaciones listaEvaluaciones[]; //NO COMPACTA
+    private ListaAsignaturaPorAlumno listaAsignatura; //NO COMPACTA
 
-    public Alumno (String rut, String nombre, String email, int telefono, int cantAsignaturas, int cantEvaluacines) {
+    public Alumno (String rut, String nombre, String email, int telefono, int cantAsignaturas) {
         this.rut = rut;
         this.nombre = nombre;
         this.email = email;
         this.telefono = telefono;
-        this.listaAsignatura = new ListaAsignaturaPorAlumno[cantAsignaturas];
-        this.listaEvaluaciones = new ListaEvaluaciones[cantEvaluacines];
+        this.listaAsignatura = new ListaAsignaturaPorAlumno(cantAsignaturas);
     }
+
+    public String getRut () {
+        return rut;
+    }
+
+    public boolean agregarAsignatura (Asignatura nuevo) {
+        return listaAsignatura.agregarAsignatura(nuevo);
+    }
+
+    public boolean editarAsignatura (Asignatura nuevo) {
+        return listaAsignatura.editarAsignatura(nuevo.getcodigo(), nuevo.getNombre());
+    }
+
+    public boolean eliminarAsignatura (Asignatura nuevo) {
+        return listaAsignatura.eliminarAsignatura(nuevo.getcodigo());
+    }
+
+
 }

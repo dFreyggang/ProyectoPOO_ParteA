@@ -1,8 +1,49 @@
-public class ListaCarreras {
+public class ListaCarrera {
 
-    private Carrera ListaCarreras[];
+    private Carrera listaCarrera[];
 
-    public ListaCarreras (int cantCarreras) {
-        this.ListaCarreras = new Carrera[cantCarreras];
+    public ListaCarrera (int cantCarreras) {
+        this.listaCarrera = new Carrera[cantCarreras];
+    }
+
+    public boolean buscarCarrera (int codigo) {
+        for (int i = 0; i < listaCarrera.length; i++) {
+            if (listaCarrera[i] != null && listaCarrera[i].getCodigo() == codigo) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean agregarCarrera (Carrera nuevo) {
+        if (nuevo != null && !buscarCarrera(nuevo.getCodigo())) {
+            for (int i = 0; i < listaCarrera.length; i++) {
+                if (listaCarrera[i] == null) {
+                    listaCarrera[i] = nuevo;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean editarCarrera (int codigo, String nombre) {
+        for (int i = 0; i < listaCarrera.length; i++) {
+            if (listaCarrera[i] != null && listaCarrera[i].getCodigo() == codigo) {
+                listaCarrera[i].setNombre(nombre);
+                return true;
+            }
+        }
+        return  false;
+    }
+
+    public boolean eliminarCarrera (int codigo) {
+        for (int i = 0; i < listaCarrera.length; i++) {
+            if (listaCarrera[i] != null && listaCarrera[i].getCodigo() == codigo) {
+                listaCarrera[i] = null;
+                return true;
+            }
+        }
+        return false;
     }
 }

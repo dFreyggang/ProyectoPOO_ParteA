@@ -1,16 +1,16 @@
 public class ListaAsignaturaPorAlumno {
-    
+
     private Asignatura listaAsignatura[]; //NO COMPACTA
-    
+
     public ListaAsignaturaPorAlumno (int cantAsignaturas) {
 
         this.listaAsignatura = new Asignatura[cantAsignaturas];
     }
 
-
+//TODOS LOS METODOS DE ASIGNATURA
     public boolean buscarAsignatura (int codigo) {
         for (int i = 0; i < listaAsignatura.length; i++) {
-            if (listaAsignatura[i] != null && listaAsignatura[i].getCodigo() == codigo) {
+            if (listaAsignatura[i] != null && listaAsignatura[i].getcodigo() == codigo) {
                 return true;
             }
         }
@@ -18,7 +18,7 @@ public class ListaAsignaturaPorAlumno {
     }
 
     public boolean agregarAsignatura (Asignatura nuevo) {
-        if (nuevo != null && buscarAsignatura(nuevo.getCodigo()) == false) {
+        if ((nuevo != null) && (!buscarAsignatura(nuevo.getcodigo()))) {
             for (int i = 0; i < listaAsignatura.length; i++) {
                 if (listaAsignatura[i] == null) {
                     listaAsignatura[i] = nuevo;
@@ -29,9 +29,19 @@ public class ListaAsignaturaPorAlumno {
         return false;
     }
 
+    public boolean editarAsignatura (int codigo, String nombre) {
+        for (int i = 0; i < listaAsignatura.length; i++) {
+           if (listaAsignatura[i] != null && listaAsignatura[i].getcodigo() == codigo) {
+               listaAsignatura[i].setNombre(nombre);
+               return true;
+           }
+        }
+        return false;
+    }
+
     public boolean eliminarAsignatura (int codigo) {
         for (int i = 0; i < listaAsignatura.length; i++) {
-            if (listaAsignatura[i] != null && listaAsignatura[i].getCodigo() == codigo) {
+            if (listaAsignatura[i] != null && listaAsignatura[i].getcodigo() == codigo) {
                 listaAsignatura[i] = null;
                 return true;
             }
@@ -39,14 +49,17 @@ public class ListaAsignaturaPorAlumno {
         return false;
     }
 
-    public listaAsignatura quitarAsignatura (int codigo) {
-        for (int i = 0; i < listaAsignatura.length; i++) {
-            if (listaAsignatura[i] != null && listaAsignatura[i].getCodigo() == codigo) {
-                listaAsignatura[i] = null;
-                return eliminado;
-            }
-        }
-        return null;
-    }
 
+    /*
+//TODOS LOS METODOS DE NOTAS
+    public boolean agregarNota (int codigo, double nota) {
+            for (int i = 0; i < listaAsignatura[codigo].getNotas(); i++) {
+                if (listaAsignatura[i] != null) {
+                    listaAsignatura[i] = nuevo;
+                    return true;
+                }
+            }
+        return false;
+    }
+*/
 }

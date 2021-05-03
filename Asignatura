@@ -2,27 +2,24 @@ public class Asignatura {
 
     private int codigo;
     private String nombre;
-    private double notas[]; //NO COMPACTA
-    private ListaDocentes listaDocentes[]; //NO COMPACTA
+    private ListaEvaluaciones notas[]; //NO COMPACTA
     private ListaAlumnosPorAsignatura listaAlumnos[]; //NO COMPACTA
 
 //CONTRUCTORES CON NOTAS (PARA ALUMNO)
-    public Asignatura (int codigo, String nombre, int cantDocentes, int cantAlumnos, cantNotas) {
+    public Asignatura (int codigo, String nombre, int cantAlumnos, int cantNotas) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.listaDocentes = new ListaDocentes[cantDocentes];
         this.listaAlumnos = new ListaAlumnosPorAsignatura[cantAlumnos];
         this.notas = new double[cantNotas];
     }
 
 //CONTRUCTORES SIN NOTA (PARA CARRERA)
-    public Asignatura (int codigo, String nombre, int cantDocentes, int cantAlumnos) {
+    public Asignatura (int codigo, String nombre, int cantAlumnos) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.listaDocentes = new ListaDocentes[cantDocentes];
         this.listaAlumnos = new ListaAlumnosPorAsignatura[cantAlumnos];
-        this.notas = 0.0;
-    }    
+        this.notas = new double[-1];
+    }
 
     public int getcodigo () {
         return codigo;
@@ -34,14 +31,18 @@ public class Asignatura {
 
     public String getNombre () {
         return nombre;
-    } 
+    }
 
     public void setNombre (String nombre) {
         this.nombre = nombre;
     }
 
     public double getNotas () {
-        return notas;
+        return notas[100];
     }
-
+/*
+    public void setNotas (double notas) {
+        this.notas = notas[100];
+    }
+*/
 }
