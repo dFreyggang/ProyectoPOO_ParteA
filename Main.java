@@ -27,6 +27,7 @@ class Main {
 		String emailAlumno;
         boolean repetir = true;
 		boolean salir = false;
+		boolean RELLENO = true;
 		int cantNotas = 30;
 
 
@@ -312,7 +313,7 @@ class Main {
 									//mostrarAsignaturasPorCarrera(codigoCarrera);
 									codigoAsignatura = sc.nextInt();
 									System.out.println("Ingrese el nuevo nombre de la asignatura");
-									nombreAsignatura = sc.nextInt();
+									nombreAsignatura = sc.nextLine();
                                     //modificarAsignaturaPorCarrera(codigoCarrera,nombreAsignatura);
                                     System.out.println("Asignatura modificada.");
                                     do {
@@ -400,7 +401,7 @@ class Main {
 									codigoCarrera = sc.nextInt();
                                     System.out.println("Ingrese el rut del alumno");
 									rutAlumno = sc.nextLine();
-									if(/*existeAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno)*/){
+									if(RELLENO/*existeAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno)*/){
 										System.out.println("El alumno ya se encuentra registrado en la carrera.");
 									}
 									else{
@@ -499,8 +500,8 @@ class Main {
                             System.out.println("Ingrese la opcion que corresponda:");
                             System.out.println("	1. Mostrar notas por asignatura");
                             System.out.println("	2. Agregar notas a una asignatura");
-                            System.out.println("	3. Modificar notas de una asignatura);
-							System.out.println("	4. Eliminar notas de una asignatura);
+                            System.out.println("	3. Modificar notas de una asignatura");
+							System.out.println("	4. Eliminar notas de una asignatura");
                             System.out.println("	5. Ver ranking");
                             System.out.println("	0. VOLVER AL MENU PRINCIPAL");
                             opcionAsignatura = sc.nextInt();
@@ -686,7 +687,6 @@ class Main {
 						break;
                 }
             }
-
         } while ((opcionPrincipal>4 || opcionPrincipal<0) && salir==false);
     }
 }
