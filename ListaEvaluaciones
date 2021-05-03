@@ -13,9 +13,10 @@ public class ListaEvaluaciones{
         double sumaAsignaturas = 0;
 		double promedioAlumno;
 		int contadorNotas = 0;
-		for(int = i; i < contadorNotas; i++) {
+
+		for(int i = 0; i < notasAsignatura.length; i++) {
             if (notasAsignatura[i] != null) {
-                sumaAsignaturas += notasAsignatura;
+                sumaAsignaturas += notasAsignatura[i];
                 contadorNotas++;       
             }
         }

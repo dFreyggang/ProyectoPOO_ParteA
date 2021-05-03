@@ -2,7 +2,7 @@ public class Asignatura {
 
     private int codigo;
     private String nombre;
-    private ListaEvaluaciones notas[]; //NO COMPACTA
+    private double notas[]; //NO COMPACTA
     private ListaAlumnosPorAsignatura listaAlumnos[]; //NO COMPACTA
 
 //CONTRUCTORES CON NOTAS (PARA ALUMNO)
