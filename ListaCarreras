@@ -1,25 +1,31 @@
-public class ListaCarrera {
+public class ListaCarreras {
 
-    private Carrera listaCarrera[];
-
-    public ListaCarrera (int cantCarreras) {
-        this.listaCarrera = new Carrera[cantCarreras];
+    private Carrera listaCarreras[];
+    private Carrera carrera;
+    //---------------------------------------CONSTRUCTOR---------------------------------------//
+    public ListaCarreras (int cantCarreras) {
+        this.listaCarreras = new Carrera[cantCarreras];
     }
 
+
+//---------------------------------------METODOS CARRERA---------------------------------------//
+
+    //BUSCAR CARRERA
     public boolean buscarCarrera (int codigo) {
-        for (int i = 0; i < listaCarrera.length; i++) {
-            if (listaCarrera[i] != null && listaCarrera[i].getCodigo() == codigo) {
+        for (int i = 0; i < listaCarreras.length; i++) {
+            if (listaCarreras[i] != null && listaCarreras[i].getCodigo() == codigo) {
                 return true;
             }
         }
         return false;
     }
 
+    //AGREGAR CARRERA
     public boolean agregarCarrera (Carrera nuevo) {
         if (nuevo != null && !buscarCarrera(nuevo.getCodigo())) {
-            for (int i = 0; i < listaCarrera.length; i++) {
-                if (listaCarrera[i] == null) {
-                    listaCarrera[i] = nuevo;
+            for (int i = 0; i < listaCarreras.length; i++) {
+                if (listaCarreras[i] == null) {
+                    listaCarreras[i] = nuevo;
                     return true;
                 }
             }
@@ -27,21 +33,120 @@ public class ListaCarrera {
         return false;
     }
 
+    //EDITAR CARRERA
     public boolean editarCarrera (int codigo, String nombre) {
-        for (int i = 0; i < listaCarrera.length; i++) {
-            if (listaCarrera[i] != null && listaCarrera[i].getCodigo() == codigo) {
-                listaCarrera[i].setNombre(nombre);
+        for (int i = 0; i < listaCarreras.length; i++) {
+            if (listaCarreras[i] != null && listaCarreras[i].getCodigo() == codigo) {
+                listaCarreras[i].setNombre(nombre);
                 return true;
             }
         }
         return  false;
     }
 
+    //ELIMINAR CARRERA
     public boolean eliminarCarrera (int codigo) {
-        for (int i = 0; i < listaCarrera.length; i++) {
-            if (listaCarrera[i] != null && listaCarrera[i].getCodigo() == codigo) {
-                listaCarrera[i] = null;
+        for (int i = 0; i < listaCarreras.length; i++) {
+            if (listaCarreras[i] != null && listaCarreras[i].getCodigo() == codigo) {
+                listaCarreras[i] = null;
                 return true;
+            }
+        }
+        return false;
+    }
+
+    //---------------------------------------METODOS ASIGNATURA POR CARRERA---------------------------------------//
+//BUSCAR ASIGNATURA
+    public boolean buscarAsignatura(int codigo) {
+        for (int i=0 ; i<listaCarreras.length ; i++){
+            if (listaCarreras[i].getCodigo() == codigo){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //AGREGAR ASIGNATURA
+    public boolean agregarAsignatura(Carrera nuevo){
+        if (!buscarAsignatura(nuevo.getCodigo())){
+            for (int i=0 ; i<listaCarreras.length ; i++){
+                if(listaCarreras[i] == null){
+                    listaCarreras[i] = nuevo;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //ELIMINAR ASIGNATURA
+    public boolean eliminarAsignatura(int codigo){
+        for (int i=0 ; i<listaCarreras.length ; i++){
+            if (listaCarreras[i].getCodigo() == codigo){
+                listaCarreras[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //---------------------------------------METODOS ALUMNO---------------------------------------//
+//AGREGAR ALUMNO
+    public boolean agregarAlumno (Alumno nuevo, int codigoAsignatura, int codigoCarrera) {
+        for (int i=0 ; i<listaCarreras.length ; i++) {
+            if(listaCarreras[i].getCodigo() == codigoCarrera) {
+                return carrera.agregarAlumno(nuevo, codigoAsignatura);
+            }
+        }
+        return false;
+    }
+
+    //EDITAR ALUMNO
+    public boolean editarAlumno (String rut, String nombre, int codigoAsignatura, int codigoCarrera) {
+        for (int i=0 ; i<listaCarreras.length ; i++) {
+            if (listaCarreras[i].getCodigo() == codigoCarrera) {
+                return carrera.editarAlumno(rut, nombre, codigoAsignatura);
+            }
+        }
+        return false;
+    }
+
+    //ELIMINAR ALUMNO
+    public boolean eliminarAlumno (String rut, int codigoAsignatura, int codigoCarrera) {
+        for (int i=0 ; i<listaCarreras.length ; i++) {
+            if (listaCarreras[i].getCodigo() == codigoCarrera) {
+                return carrera.eliminarAlumno(rut, codigoAsignatura);
+            }
+        }
+        return false;
+    }
+
+//---------------------------------------METODOS NOTA---------------------------------------//
+//AGREGAR NOTA
+    public boolean agregarNota (double nuevaNota, String rut, int codigoAsignatura, int codigoCarrera) {
+        for (int i=0 ; i<listaCarreras.length ; i++){
+            if(listaCarreras[i].getCodigo() == codigoCarrera){
+                return carrera.agregarNota(nuevaNota, rut, codigoAsignatura);
+            }
+        }
+        return false;
+    }
+
+    //EDITAR NOTA
+    public boolean editarNota (double notaReferencia, double nuevaNota, String rut, int codigoAsignatura, int codigoCarrera) {
+        for (int i=0 ; i<listaCarreras.length ; i++){
+            if(listaCarreras[i].getCodigo() == codigoCarrera){
+                return carrera.editarNota(notaReferencia, nuevaNota, rut, codigoAsignatura);
+            }
+        }
+        return false;
+    }
+
+    //ELIMINAR NOTA
+    public boolean eliminarNota (double notaReferencia, String rut, int codigoAsignatura, int codigoCarrera) {
+        for (int i=0 ; i<listaCarreras.length ; i++){
+            if(listaCarreras[i].getCodigo() == codigoCarrera){
+                return listaCarreras[i].eliminarNota(notaReferencia, rut, codigoAsignatura);
             }
         }
         return false;

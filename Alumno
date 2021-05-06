@@ -1,34 +1,74 @@
+import java.util.ArrayList;
+
 public class Alumno {
 
     private String rut;
     private String nombre;
-    private String email;
-    private int telefono;
-    private ListaAsignaturaPorAlumno listaAsignatura; //NO COMPACTA
+    private ArrayList<Double> notas;
 
-    public Alumno (String rut, String nombre, String email, int telefono, int cantAsignaturas) {
+
+    //---------------------------------------CONSTRUCTOR---------------------------------------//
+    public Alumno (String rut, String nombre, int cantAlumnos, int cantNotas) {
         this.rut = rut;
         this.nombre = nombre;
-        this.email = email;
-        this.telefono = telefono;
-        this.listaAsignatura = new ListaAsignaturaPorAlumno(cantAsignaturas);
+        this.notas = new ArrayList<Double>();
     }
 
+
+    //---------------------------------------GETTERS Y SETTERS---------------------------------------//
+//GETRUT
     public String getRut () {
         return rut;
     }
 
-    public boolean agregarAsignatura (Asignatura nuevo) {
-        return listaAsignatura.agregarAsignatura(nuevo);
+    //GETNOMBRE
+    public String getNombre () {
+        return nombre;
     }
 
-    public boolean editarAsignatura (Asignatura nuevo) {
-        return listaAsignatura.editarAsignatura(nuevo.getcodigo(), nuevo.getNombre());
-    }
-
-    public boolean eliminarAsignatura (Asignatura nuevo) {
-        return listaAsignatura.eliminarAsignatura(nuevo.getcodigo());
+    //SETNOMBRE
+    public void setNombre (String nombre) {
+        this.nombre = nombre;
     }
 
 
+    //---------------------------------------METODOS NOTA---------------------------------------//
+//AGREGAR NOTA
+    public boolean agregarNota (double nuevaNota) {
+        notas.add(nuevaNota);
+        return true;
+    }
+
+    //EDITAR NOTA
+    public boolean editarNota (double notaReferencia, double nuevaNota) {
+        for (int i = 0; i < notas.size(); i++) {
+            if (notas.get(i) == notaReferencia) {
+                notas.set(i,nuevaNota);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //ELIMINAR NOTA
+    public boolean eliminarNota (double notaReferencia) {
+        for (int i=0 ; i<notas.size() ; i++) {
+            if (notas.get(i) == notaReferencia) {
+                notas.remove(notaReferencia);  //Si esto falla hay que poner "", OJO AL TEJO
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //PROMEDIOS NOTA
+    public double promedioNotas (){
+        double suma = 0.0;
+        double promedio;
+        for (int i=0 ; i<notas.size() ; i++) {
+            suma += notas.get(i);
+        }
+        promedio = suma / notas.size();
+        return promedio;
+    }
 }

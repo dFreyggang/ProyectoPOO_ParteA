@@ -1,0 +1,137 @@
+public class ListaAlumnos {
+
+    private Alumno listaAlumnos[];
+
+    //---------------------------------------CONSTRUCTOR---------------------------------------//
+    public ListaAlumnos (int cantAlumnos) {
+        this.listaAlumnos = new Alumno[cantAlumnos];
+    }
+
+
+    //---------------------------------------METODOS ALUMNO---------------------------------------//
+//BUSCAR ALUMNO
+    public boolean buscarAlumno (String rut) {
+        for (int i = 0; i < listaAlumnos.length; i++) {
+            if (listaAlumnos[i] != null && listaAlumnos[i].getRut().equals(rut)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //AGREGAR ALUMNO
+    public boolean agregarAlumno (Alumno nuevo) {
+        if ((nuevo != null) && (!buscarAlumno(nuevo.getRut()))) {
+            for (int i = 0; i < listaAlumnos.length; i++) {
+                if (listaAlumnos[i] == null) {
+                    listaAlumnos[i] = nuevo;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    //EDITAR ALUMNO
+    public boolean editarAlumno (String rut, String nombre) {
+        for (int i = 0; i < listaAlumnos.length; i++) {
+            if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null) {
+                listaAlumnos[i].setNombre(nombre);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //ELIMINAR ALUMNO
+    public boolean eliminarAlumno (String rut) {
+        for (int i = 0; i < listaAlumnos.length; i++) {
+            if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null) {
+                listaAlumnos[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    //---------------------------------------METODOS NOTA EN UN ALUMNO---------------------------------------//
+//AGREGAR SOLO POR ALUMNO
+    public boolean agregarNota (double nuevaNota, String rut) {
+        for (int i = 0; i < listaAlumnos.length; i++) {
+            if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null) {
+                return listaAlumnos[i].agregarNota(nuevaNota);
+            }
+        }
+        return  false;
+    }
+
+    //EDITAR SOLO POR ALUMNO
+    public boolean editarNota (double notaReferencia, double nuevaNota, String rut) {
+        for (int i = 0; i < listaAlumnos.length; i++) {
+            if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null ) {
+                return listaAlumnos[i].editarNota(notaReferencia, nuevaNota);
+            }
+        }
+        return false;
+    }
+
+    //ELIMINAR SOLO POR ALUMNO
+    public boolean eliminarNota (double notaReferencia, String rut) {
+        for (int i = 0; i < listaAlumnos.length; i++) {
+            if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null) {
+                return listaAlumnos[i].eliminarNota(notaReferencia);
+            }
+        }
+        return false;
+    }
+
+    //RANKING DE ALUMNOS POR ASIGNATURA
+    public String [][] rankingNotas (){
+        double auxPromedioPrimero = 0.0;
+        String promedioPrimero;
+        String nombrePrimero = null;
+        double auxPromedioSegundo = 0.0;
+        String promedioSegundo;
+        String nombreSegundo = null;
+        double auxPromedioTercero = 0.0;
+        String promedioTercero;
+        String nombreTercero = null;
+        String ranking[][] = new String[2][3];
+
+        //RECORRER Y ENCONTRAR A LOS 3 MEJORES PROMEDIOS DE ESA ASIGNATURA
+        for (int i=0 ; i<listaAlumnos.length ; i++){
+            if (listaAlumnos[i].promedioNotas() > auxPromedioPrimero){
+                auxPromedioPrimero = listaAlumnos[i].promedioNotas();
+                nombrePrimero = listaAlumnos[i].getNombre();
+            }
+            else {
+                if (listaAlumnos[i].promedioNotas() > auxPromedioSegundo){
+                    auxPromedioSegundo = listaAlumnos[i].promedioNotas();
+                    nombreSegundo = listaAlumnos[i].getNombre();
+                }
+                else {
+                    if (listaAlumnos[i].promedioNotas() > auxPromedioTercero){
+                        auxPromedioTercero = listaAlumnos[i].promedioNotas();
+                        nombreTercero = listaAlumnos[i].getNombre();
+                    }
+                }
+            }
+        }
+
+        //TRANSFORMAR SUS PROMEDIOS DE DOUBLE A STRING PARA GUARDAR EN MATRIZ
+        promedioPrimero = String.valueOf(auxPromedioPrimero);
+        promedioSegundo = String.valueOf(auxPromedioSegundo);
+        promedioTercero = String.valueOf(auxPromedioTercero);
+
+        //AGREGAR LOS ELEMENTOS A LA MATRIZ
+        ranking[0][0] = promedioPrimero;
+        ranking[0][1] = nombrePrimero;
+        ranking[1][0] = promedioSegundo;
+        ranking[1][1] = nombreSegundo;
+        ranking[2][0] = promedioTercero;
+        ranking[2][1] = nombreTercero;
+
+        return ranking;
+    }
+}    

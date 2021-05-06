@@ -2,14 +2,16 @@ public class Escuela {
 
     private String nombre;
     private int codigo;
-    private ListaCarrera listaCarrera;
+    private ListaCarreras listaCarrera;
 
+//---------------------------------------CONSTRUCTOR---------------------------------------//
     public Escuela (String nombre, int codigo, int cantCarreras) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.listaCarrera = new ListaCarrera(cantCarreras);
+        this.listaCarrera = new ListaCarreras(cantCarreras);
     }
 
+//---------------------------------------METODOS---------------------------------------//
     public int getCodigo() {
         return codigo;
     }
@@ -26,6 +28,7 @@ public class Escuela {
         this.nombre = nombre;
     }
 
+//---------------------------------------METODOS CARRERA---------------------------------------//
     public boolean agregarCarrera (Carrera nuevo) {
         return listaCarrera.agregarCarrera(nuevo);
     }
@@ -37,4 +40,11 @@ public class Escuela {
     public boolean eliminarCarrera (Carrera nuevo) {
         return listaCarrera.eliminarCarrera(nuevo.getCodigo());
     }
+
+//---------------------------------------METODOS ASIGNATURA---------------------------------------//
+
+//---------------------------------------METODOS ALUMNO---------------------------------------//
+
+//---------------------------------------METODOS NOTA---------------------------------------//
+
 }

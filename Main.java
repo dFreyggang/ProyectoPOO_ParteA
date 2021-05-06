@@ -92,10 +92,8 @@ class Main {
                                 } while (repetir == true);
                                 break;
 
-                            //MODIFICAR ESCUELA
-                            case 3:
-                                repetir = true;
-                                do {
+                            /
+							
                                     System.out.println("Ingrese el codigo de la escuela que desea modificar:");
                                     //mostrarEscuelas;
                                     codigoEscuela = sc.nextInt();
@@ -792,7 +790,7 @@ System.out.flush();
 
 
 //PREGUNTAS PARA LA PROFE
-
-
-
+ - listaAsignaturas:  crear dos variables que sean de la misma clase/tipo para retornarla. Rompe encapsulamiento?
+ 
+ 
 */

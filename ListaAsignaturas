@@ -1,0 +1,119 @@
+public class ListaAsignaturas {
+
+    private Asignatura listaAsignaturas[];
+    private Asignatura asignatura;  //SE PUEDE HACER ESTO? xdxd ROMPE ENCAPSULAMIENTO?
+
+
+//---------------------------------------CONSTRUCTOR---------------------------------------//
+    public ListaAsignaturas(int cantAsignaturas) {
+        this.listaAsignaturas = new Asignatura[cantAsignaturas];
+    }
+
+
+//---------------------------------------METODOS ASIGNATURA---------------------------------------//
+//BUSCAR ASIGNATURA
+    public boolean buscarAsignatura(int codigo) {
+        for (int i = 0; i < listaAsignaturas.length; i++) {
+            if (listaAsignaturas[i] != null && listaAsignaturas[i].getcodigo() == codigo) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+//AGREGAR ASIGNATURA 
+    public boolean agregarAsignatura(Asignatura nuevo) {
+        if ((nuevo != null) && (!buscarAsignatura(nuevo.getcodigo()))) {
+            for (int i = 0; i < listaAsignaturas.length; i++) {
+                if (listaAsignaturas[i] == null) {
+                    listaAsignaturas[i] = nuevo;
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+//EDITAR ASIGNATURA
+    public boolean editarAsignatura(int codigo, String nombre) {
+        for (int i = 0; i < listaAsignaturas.length; i++) {
+            if (listaAsignaturas[i] != null && listaAsignaturas[i].getcodigo() == codigo) {
+                listaAsignaturas[i].setNombre(nombre);
+                return true;
+            }
+        }
+        return false;
+    }
+
+//ELIMINAR ASIGNATURA
+    public boolean eliminarAsignatura(int codigo) {
+        for (int i = 0; i < listaAsignaturas.length; i++) {
+            if (listaAsignaturas[i] != null && listaAsignaturas[i].getcodigo() == codigo) {
+                listaAsignaturas[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+//---------------------------------------METODOS ALUMNOS EN UNA ASIGNATURA---------------------------------------//
+//AGREGAR ALUMNO
+    public boolean agregarAlumno (Alumno nuevo, int codigo) {
+        for (int i = 0; i < listaAsignaturas.length; i++) {
+            if (listaAsignaturas[i].getcodigo() == codigo) {
+                return listaAsignaturas[i].agregarAlumno(nuevo);
+            }
+        }
+        return false;
+    }
+
+//EDITAR ALUMNO
+    public boolean editarAlumno (String rut, String nombre, int codigo) {
+        for (int i = 0; i < listaAsignaturas.length; i++) {
+            if (listaAsignaturas[i].getcodigo() == codigo) {
+                return listaAsignaturas[i].editarAlumno(rut, nombre);
+            }
+        }
+        return false;
+    }
+
+//ELIMINAR ALUMNO
+    public boolean eliminarAlumno (String rut, int codigo) {
+        for (int i = 0; i < listaAsignaturas.length; i++) {
+            if (listaAsignaturas[i].getcodigo() == codigo) {
+                return listaAsignaturas[i].eliminarAlumno(rut);
+            }
+        }
+        return false;
+    }
+
+//---------------------------------------METODOS NOTA---------------------------------------//
+//AGREGAR NOTA
+    public boolean agregarNota (double nuevaNota, String rut, int codigoAsignatura) {
+        for (int i=0 ; i<listaAsignaturas.length ; i++){
+			if(listaAsignaturas[i].getCodigo == codigoAsignatura){
+				return asignatura.agregarNota(nuevaNota, rut);
+			}
+		}
+		return false;
+    }
+
+//EDITAR NOTA
+    public boolean editarNota (double notaReferencia, double nuevaNota, String rut, int codigoAsignatura) {
+        for (int i=0 ; i<listaAsignaturas.length ; i++){
+			if(listaAsignaturas[i].getCodigo() == codigoAsignatura){
+				return asignatura.editarNota(notaReferencia, nuevaNota, rut);
+			}
+		}
+		return false;
+    }
+
+//ELIMINAR NOTA
+    public boolean eliminarNota (double notaReferencia, String rut, int codigoAsignatura) {
+        for (int i=0 ; i<listaAsignaturas.length ; i++){
+			if(listaAsignaturas[i].getCodigo == codigoAsignatura){
+				return asignatura.editarNota(notaReferencia, nuevaNota, rut);
+			}
+		}
+		return false;
+    }

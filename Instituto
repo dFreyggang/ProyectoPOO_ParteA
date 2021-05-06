@@ -1,0 +1,35 @@
+public class Instituto {
+
+    private String nombre;
+    private String rector;
+    private ListaEscuelas listaEscuela;
+
+//---------------------------------------CONSTRUCTOR---------------------------------------//
+    public Instituto (String nombre, String rector, int cantEscuelas) {
+        this.nombre = nombre;
+        this.rector = rector;
+        this.listaEscuela =  new ListaEscuelas(cantEscuelas);
+    }
+
+//---------------------------------------METODOS ESCUELA---------------------------------------//
+    public boolean agregarEscuela (Escuela nuevo) {
+        return listaEscuela.agregarEscuela(nuevo);
+    }
+
+    public boolean editarEscuela (Escuela nuevo) {
+        return  listaEscuela.editarEscuela(nuevo.getCodigo(), nuevo.getNombre());
+    }
+
+    public boolean eliminarEscuela (Escuela nuevo) {
+        return listaEscuela.eliminarEscuela(nuevo.getCodigo());
+    }
+
+//---------------------------------------METODOS CARRERA---------------------------------------//
+
+//---------------------------------------METODOS ASIGNATURA---------------------------------------//
+
+//---------------------------------------METODOS ALUMNO---------------------------------------//
+
+//---------------------------------------METODOS NOTA---------------------------------------//
+
+}
