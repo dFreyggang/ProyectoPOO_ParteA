@@ -10,26 +10,25 @@ class Main {
         int opcionAsignatura;
         int opcionAlumno;
         int opcionEvaluacion;
-		int opcionRanking;
+        int opcionRanking;
         int escuela;
         int codigoEscuela;
         int codigoCarrera;
-		int codigoAsignatura;
-		int codigoAlumno;
-		int codigoNota;
+        int codigoAsignatura;
+        int codigoAlumno;
+        int codigoNota;
         int opcionContinuar = 0;
-		float nota;
+        float nota;
         String nombreEscuela;
         String nombreCarrera;
-		String nombreAsignatura;
-		String rutAlumno;
-		String nombreAlumno;
-		String emailAlumno;
+        String nombreAsignatura;
+        String rutAlumno;
+        String nombreAlumno;
+        String emailAlumno;
         boolean repetir = true;
-		boolean salir = false;
-		boolean RELLENO = true;
-		int cantNotas = 30;
-
+        boolean salir = false;
+        boolean RELLENO = true;
+        int cantNotas = 30;
 
         System.out.println("Bienvenido al sistema de gestion del Instituto Hardware");
         do {
@@ -40,9 +39,9 @@ class Main {
             System.out.println("2. Carreras");
             System.out.println("3. Asignaturas");
             System.out.println("4. Alumnos");
-			System.out.println("5. Evaluaciones");
+            System.out.println("5. Evaluaciones");
             System.out.println("0. SALIR");
-
+			
             opcionPrincipal = sc.nextInt();
             if (opcionPrincipal > 5 || opcionPrincipal < 0) {
                 System.out.println("Opcion ingresada incorrecta. Intente nuevamente");
@@ -62,13 +61,13 @@ class Main {
                             System.out.println("	0. VOLVER AL MENU PRINCIPAL");
                             opcionEscuela = sc.nextInt();
                         } while (opcionEscuela > 4 || opcionEscuela < 0);
-                        
-						switch (opcionEscuela) {
+
+                        switch (opcionEscuela) {
 
                             //MOSTRAR ESCUELAS
                             case 1:
                                 //mostrarEscuelas
-                            	break;
+                                break;
                             //AGREGAR ESCUELA
                             case 2:
                                 repetir = true;
@@ -92,10 +91,12 @@ class Main {
                                 } while (repetir == true);
                                 break;
 
-                            /
-							
-                                    System.out.println("Ingrese el codigo de la escuela que desea modificar:");
+                            //MODIFICAR ESCUELA
+                            case 3:
+                                repetir = true;
+                                do {
                                     //mostrarEscuelas;
+                                    System.out.println("Ingrese el codigo de la escuela que desea modificar:");
                                     codigoEscuela = sc.nextInt();
                                     //modificarEscuela(codigoEscuela);
                                     System.out.println("Escuela modificada.");
@@ -136,9 +137,9 @@ class Main {
                                 } while (repetir == true);
                                 break;
 
-							//VOLVER AL MENU PRINCIPAL
-							case 0: 
-								break;
+                            //VOLVER AL MENU PRINCIPAL
+                            case 0:
+                                break;
                         }
                         break;
 
@@ -154,17 +155,17 @@ class Main {
                             System.out.println("	0. VOLVER AL MENU PRINCIPAL");
                             opcionCarrera = sc.nextInt();
                         } while (opcionCarrera > 4 && opcionCarrera < 0);
-                        
+
                         switch(opcionCarrera) {
 
                             //MOSTRAR CARRERAS
                             case 1:
-								System.out.println("Ingrese el codigo de la escuela");
-								//mostrarEscuelas
-								codigoEscuela = sc.nextInt();
+                                System.out.println("Ingrese el codigo de la escuela");
+                                //mostrarEscuelas
+                                codigoEscuela = sc.nextInt();
                                 //mostrarCarreras(codigoEscuela);
                                 break;
-    
+
                             //AGREGAR CARRERA
                             case 2:
                                 repetir = true;
@@ -189,7 +190,7 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-    
+
                             //MODIFICAR CARRERA
                             case 3:
                                 repetir = true;
@@ -215,7 +216,7 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-    
+
                             //ELIMINAR CARRERA
                             case 4:
                                 repetir = true;
@@ -224,7 +225,7 @@ class Main {
                                     //mostrarEscuelas
                                     codigoEscuela = sc.nextInt();
                                     System.out.println("Ingrese el codigo de la carrera");
-                                    //mostrarCarreras(codigoEscuela);
+                                    //mostrarCarreras
                                     codigoCarrera = sc.nextInt();
                                     //eliminarCarrera(codigoEscuela,codigoCarrera);
                                     System.out.println("Carrera eliminada.");
@@ -241,15 +242,15 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-							//VOLVER AL MENU PRINCIPAL
-							case 0: 
-								break;
+                            //VOLVER AL MENU PRINCIPAL
+                            case 0:
+                                break;
                         }
-                    	break;
+                        break;
 
                     //MENU SECUNDARIO - ASIGNATURAS POR CARRERA
                     case 3:
-						System.out.println("*GESTION DE ASIGNATURAS POR CARRERA*");
+                        System.out.println("*GESTION DE ASIGNATURAS POR CARRERA*");
                         do {
                             System.out.println("Ingrese la opcion que corresponda:");
                             System.out.println("	1. Mostrar asignaturas de una carrera");
@@ -259,35 +260,35 @@ class Main {
                             System.out.println("	0. VOLVER AL MENU PRINCIPAL");
                             opcionAsignatura = sc.nextInt();
                         } while (opcionAsignatura > 4 && opcionAsignatura < 0);
-                        
+
                         switch(opcionAsignatura) {
 
                             //MOSTRAR ASIGNATURAS POR CARRERA
                             case 1:
-								System.out.println("Ingrese el codigo de la escuela");
+                                System.out.println("Ingrese el codigo de la escuela");
                                 //mostrarEscuelas
                                 codigoEscuela = sc.nextInt();
                                 System.out.println("Ingrese el codigo de la carrera");
                                 //mostrarCarreras(codigoEscuela);
                                 codigoCarrera = sc.nextInt();
-                                //mostrarAsignaturasPorCarrera(codigoEscuela,codigoCarrera);
+                                //mostrarAsignaturas(codigoCarrera);
                                 break;
-    
+
                             //AGREGAR ASIGNATURA A UNA CARRERA
                             case 2:
                                 repetir = true;
                                 do {
                                     System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el nombre de la asignatura");
-									nombreAsignatura = sc.nextLine();
-                                    //agregarAsignaturaPorCarrera(codigoEscuela,codigoCarrera,nombreAsignatura);
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el nombre de la asignatura");
+                                    nombreAsignatura = sc.nextLine();
+                                    //agregarAsignaturaPorCarrera(codigoCarrera,nombreAsignatura);
                                     System.out.println("Asignatura agregada.");
-    
+
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
                                         System.out.println("	0. Agregar otra asignatura");
@@ -301,23 +302,23 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-    
+
                             //MODIFICAR ASIGNATURA DE UNA CARRERA
                             case 3:
                                 repetir = true;
                                 do {
                                     System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el codigo de la asignatura");
-									//mostrarAsignaturasPorCarrera(codigoEscuela,codigoCarrera);
-									codigoAsignatura = sc.nextInt();
-									System.out.println("Ingrese el nuevo nombre de la asignatura");
-									nombreAsignatura = sc.nextLine();
-                                    //modificarAsignaturasPorCarrera(codigoEscuela,codigoCarrera,nombreAsignatura)
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la asignatura");
+                                    //mostrarAsignaturasPorCarrera(codigoCarrera);
+                                    codigoAsignatura = sc.nextInt();
+                                    System.out.println("Ingrese el nuevo nombre de la asignatura");
+                                    nombreAsignatura = sc.nextLine();
+                                    //modificarAsignaturaPorCarrera(codigoCarrera,nombreAsignatura);
                                     System.out.println("Asignatura modificada.");
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
@@ -332,21 +333,21 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-    
+
                             //ELIMINAR ASIGNATURA DE UNA CARRERA
                             case 4:
                                 repetir = true;
                                 do {
-                                	System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el codigo de la asignatura");
-									//mostrarAsignaturasPorCarrera(codigoEscuela,codigoCarrera);
-									codigoAsignatura = sc.nextInt();
-                                    //eliminarAsignaturasPorCarrera(codigoEscuela,codigoCarrera,codigoAsignatura);
+                                    System.out.println("Ingrese el codigo de la escuela");
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la asignatura");
+                                    //mostrarAsignaturasPorCarrera(codigoCarrera);
+                                    codigoAsignatura = sc.nextInt();
+                                    //eliminarAsignaturaPorCarrera(codigoCarrera,codigoAsignatura);
                                     System.out.println("Asignatura eliminada.");
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
@@ -362,15 +363,15 @@ class Main {
                                 } while (repetir == true);
                                 break;
 
-							//VOLVER AL MENU PRINCIPAL
-							case 0: 
-								break;
+                            //VOLVER AL MENU PRINCIPAL
+                            case 0:
+                                break;
                         }
-                    	break;
+                        break;
 
                     //MENU SECUNDARIO - ALUMNOS
                     case 4:
-						System.out.println("*GESTION DE ALUMNOS POR CARRERA*");
+                        System.out.println("*GESTION DE ALUMNOS POR CARRERA*");
                         do {
                             System.out.println("Ingrese la opcion que corresponda:");
                             System.out.println("	1. Mostrar alumnos de una carrera");
@@ -380,45 +381,46 @@ class Main {
                             System.out.println("	0. VOLVER AL MENU PRINCIPAL");
                             opcionAlumno = sc.nextInt();
                         } while (opcionAlumno > 4 && opcionAlumno < 0);
-                        
+
                         switch(opcionAlumno) {
-                            //MOSTRAR ALUMNOS POR CARRERA
+                            //MOSTRAR ALUMNOS POR ASIGNATURA
                             case 1:
-								System.out.println("Ingrese el codigo de la escuela");
+                                System.out.println("Ingrese el codigo de la escuela");
                                 //mostrarEscuelas
                                 codigoEscuela = sc.nextInt();
                                 System.out.println("Ingrese el codigo de la carrera");
                                 //mostrarCarreras(codigoEscuela);
                                 codigoCarrera = sc.nextInt();
-                                //mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
+                                System.out.println("Ingrese el codigo de la asignatura");
+                                //mostrarAsignaturas(codigoEscuela,codigoCarrera);
+                                codigoAsignatura = sc.nextInt();
+                                //mostrarAlumnosPorAsignatura(codigoEscuela,codigoCarrera,codigoAsignatura);
                                 break;
-    
+
                             //AGREGAR ALUMNO A UNA CARRERA
                             case 2:
                                 repetir = true;
                                 do {
                                     System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-                                    System.out.println("Ingrese el rut del alumno.");
-									System.out.println("Escribalo con digito verificador y sin puntos ni guion.");
-									System.out.println("Ejemplo: Si el rut es 20.202.020-k, debe ingresar 20202020k");
-									rutAlumno = sc.nextLine();
-									if(RELLENO/*existeAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno)*/){
-										System.out.println("El alumno ya se encuentra registrado en la carrera.");
-									}
-									else{
-										System.out.println("Ingrese el nombre del alumno");
-										nombreAlumno = sc.nextLine();
-										System.out.println("Ingrese el email del alumno");
-										emailAlumno = sc.nextLine();
-										//agregarAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno,nombreAlumno,emailAlumno);
-										System.out.println("Alumno agregado.");
-									}
-    
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el rut del alumno");
+                                    rutAlumno = sc.nextLine();
+                                    if(RELLENO/*existeAlumnoPorCarrera(codigoEscuela,codigoCarrera,rutAlumno)*/){
+                                        System.out.println("El alumno ya se encuentra registrado en la carrera.");
+                                    }
+                                    else{
+                                        System.out.println("Ingrese el nombre del alumno");
+                                        nombreAlumno = sc.nextLine();
+                                        System.out.println("Ingrese el email del alumno");
+                                        emailAlumno = sc.nextLine();
+                                        //agregarAlumnoPorCarrera(codigoEscuela,codigoCarrera);
+                                        System.out.println("Alumno agregado.");
+                                    }
+
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
                                         System.out.println("	0. Agregar otro alumno");
@@ -433,25 +435,25 @@ class Main {
                                 } while (repetir == true);
                                 break;
 
-							//AGREGAR ASIGNATURAS A UN ALUMNO
-							case 3:
-								repetir = true;
+                            //AGREGAR ASIGNATURAS A UN ALUMNO
+                            case 3:
+                                repetir = true;
                                 do {
                                     System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el codigo del alumno");
-									//mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
-									codigoAlumno = sc.nextInt();
-									System.out.println("Ingrese el codigo de la asignatura");
-									//mostrarAsignaturasPorAlumnoNoInscritas(codigoEscuela,codigoCarrera,codigoAlumno);
-									codigoAsignatura = sc.nextInt();
-									//agregarAsignaturaPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
-									System.out.println("Asignatura agregada.");
-										
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el codigo del alumno");
+                                    //mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
+                                    codigoAlumno = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la asignatura");
+                                    //mostrarAsignaturasPorAlumnoNoInscritas(codigoEscuela,codigoCarrera,codigoAlumno);
+                                    codigoAsignatura = sc.nextInt();
+                                    //agregarAsignaturaPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
+                                    System.out.println("Asignatura agregada.");
+
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
                                         System.out.println("	0. Agregar otra asignatura");
@@ -464,26 +466,25 @@ class Main {
                                         }
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
-								break;  
-    
+                                break;
+
                             //ELIMINAR ASIGNATURA DE UN ALUMNO
                             case 4:
                                 repetir = true;
                                 do {
                                     System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el codigo del alumno");
-									//mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
-									codigoAlumno = sc.nextInt();
-									System.out.println("Ingrese el codigo de la asignatura");
-									//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
-									codigoAsignatura = sc.nextInt();
-									//eliminarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
-									System.out.println("Asignatura eliminada.");
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el codigo del alumno");
+                                    //mostrarAlumnosPorCarrera
+                                    codigoAlumno = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la asignatura");
+                                    //mostrarAsignaturasPorAlumno
+                                    codigoAsignatura = sc.nextInt();
+                                    System.out.println("Asignatura eliminada.");
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
                                         System.out.println("	0. Eliminar otra asignatura");
@@ -497,70 +498,67 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-								
-							//VOLVER AL MENU PRINCIPAL
-							case 0: 
-								break;
+
+                            //VOLVER AL MENU PRINCIPAL
+                            case 0:
+                                break;
                         }
-                    	break;
-					
-					//MENU SECUNDARIO - EVALUACIONES
-					case 5:
-						System.out.println("*GESTION DE EVALUACIONES*");
+                        break;
+
+                    //MENU SECUNDARIO - EVALUACIONES
+                    case 5:
+                        System.out.println("*GESTION DE EVALUACIONES*");
                         do {
                             System.out.println("Ingrese la opcion que corresponda:");
                             System.out.println("	1. Mostrar notas por asignatura");
                             System.out.println("	2. Agregar notas a una asignatura");
                             System.out.println("	3. Modificar notas de una asignatura");
-							System.out.println("	4. Eliminar notas de una asignatura");
+                            System.out.println("	4. Eliminar notas de una asignatura");
                             System.out.println("	5. Ver ranking");
                             System.out.println("	0. VOLVER AL MENU PRINCIPAL");
                             opcionAsignatura = sc.nextInt();
                         } while (opcionAsignatura > 5 && opcionAsignatura < 0);
-                        
+
                         switch(opcionAsignatura) {
 
                             //MOSTRAR NOTAS POR ASIGNATURA
                             case 1:
-								System.out.println("Ingrese el codigo de la escuela");
-								//mostrarEscuelas
-								codigoEscuela = sc.nextInt();
-								System.out.println("Ingrese el codigo de la carrera");
-								//mostrarCarreras(codigoEscuela);
-								codigoCarrera = sc.nextInt();
-								System.out.println("Ingrese el codigo del alumno");
-								//mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
-								codigoAlumno = sc.nextInt();
-								System.out.println("Ingrese el codigo de la asignatura");
-								//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
-								codigoAsignatura = sc.nextInt();
-								//mostrarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
+                                System.out.println("Ingrese el codigo de la escuela");
+                                //mostrarEscuelas
+                                codigoEscuela = sc.nextInt();
+                                System.out.println("Ingrese el codigo de la carrera");
+                                //mostrarCarreras(codigoEscuela);
+                                codigoCarrera = sc.nextInt();
+                                System.out.println("Ingrese el codigo del alumno");
+                                //mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
+                                codigoAlumno = sc.nextInt();
+                                System.out.println("Ingrese el codigo de la asignatura");
+                                //mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
+                                codigoAsignatura = sc.nextInt();
+                                //mostrarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
                                 break;
-    
+
                             //AGREGAR NOTAS A UNA ASIGNATURA
                             case 2:
                                 repetir = true;
                                 do {
                                     System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el codigo del alumno");
-									//mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
-									codigoAlumno = sc.nextInt();
-									System.out.println("Ingrese el codigo de la asignatura");
-									//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
-									codigoAsignatura = sc.nextInt();
-									do{
-										System.out.println("Ingrese la nota.");
-										System.out.println("Utilice el simbolo punto (.) para separar los decimales.");
-										System.out.println("Si la nota es un numero entero, ingresela como 'nota.0'.");
-										System.out.println("Ejemplo: Si quiere ingresar una nota=7 debera escribir 7.0");
-										nota = sc.nextFloat();
-									}while(nota<=1.0 && nota>=7.0);
-									//agregarNotas(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,nota);
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el codigo del alumno");
+                                    //mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
+                                    codigoAlumno = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la asignatura");
+                                    //mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
+                                    codigoAsignatura = sc.nextInt();
+                                    do{
+                                        System.out.println("Ingrese la nota");
+                                        nota = sc.nextFloat();
+                                    }while(nota<=1.0 && nota>=7.0);
+                                    //agregarNota(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,nota);
                                     System.out.println("Nota agregada.");
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
@@ -575,34 +573,31 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-    
+
                             //MODIFICAR NOTAS DE UNA ASIGNATURA
                             case 3:
                                 repetir = true;
                                 do {
                                     System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el codigo del alumno");
-									//mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
-									codigoAlumno = sc.nextInt();
-									System.out.println("Ingrese el codigo de la asignatura");
-									//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
-									codigoAsignatura = sc.nextInt();
-									System.out.println("Ingrese el codigo de la nota que desea modificar");
-									//mostrarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
-									codigoNota = sc.nextInt();
-									do{
-										System.out.println("Ingrese el nuevo valor de la nota.");
-										System.out.println("Utilice el simbolo punto (.) para separar los decimales.");
-										System.out.println("Si la nota es un numero entero, ingresela como 'nota.0'.");
-										System.out.println("Ejemplo: Si quiere ingresar una nota=7 debera escribir 7.0");
-										nota = sc.nextFloat();
-									}while(nota<=1.0 && nota>=7.0);
-									//ModificarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,codigoNota,nota);
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el codigo del alumno");
+                                    //mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
+                                    codigoAlumno = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la asignatura");
+                                    //mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
+                                    codigoAsignatura = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la nota que desea modificar");
+                                    //mostrarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
+                                    codigoNota = sc.nextInt();
+                                    do{
+                                        System.out.println("Ingrese el nuevo valor de la nota");
+                                        nota = sc.nextFloat();
+                                    }while(nota<=1.0 && nota>=7.0);
+                                    //ModificarNotaPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,codigoNota,nota);
                                     System.out.println("Nota modificada.");
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
@@ -617,27 +612,27 @@ class Main {
                                     } while (opcionContinuar > 1 && opcionContinuar < 0);
                                 } while (repetir == true);
                                 break;
-    
+
                             //ELIMINAR NOTAS DE UNA ASIGNATURA
                             case 4:
                                 repetir = true;
                                 do {
-                                	System.out.println("Ingrese el codigo de la escuela");
-									//mostrarEscuelas
-									codigoEscuela = sc.nextInt();
-									System.out.println("Ingrese el codigo de la carrera");
-									//mostrarCarreras(codigoEscuela);
-									codigoCarrera = sc.nextInt();
-									System.out.println("Ingrese el codigo del alumno");
-									//mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
-									codigoAlumno = sc.nextInt();
-									System.out.println("Ingrese el codigo de la asignatura");
-									//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
-									codigoAsignatura = sc.nextInt();
-									System.out.println("Ingrese el codigo de la nota que desea eliminar");
-									//mostrarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
-									codigoNota = sc.nextInt();
-									//eliminarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,codigoNota);
+                                    System.out.println("Ingrese el codigo de la escuela");
+                                    //mostrarEscuelas
+                                    codigoEscuela = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la carrera");
+                                    //mostrarCarreras(codigoEscuela);
+                                    codigoCarrera = sc.nextInt();
+                                    System.out.println("Ingrese el codigo del alumno");
+                                    //mostrarAlumnosPorCarrera(codigoEscuela,codigoCarrera);
+                                    codigoAlumno = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la asignatura");
+                                    //mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
+                                    codigoAsignatura = sc.nextInt();
+                                    System.out.println("Ingrese el codigo de la nota que desea eliminar");
+                                    //mostrarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura);
+                                    codigoNota = sc.nextInt();
+                                    //eliminarNotasPorAsignatura(codigoEscuela,codigoCarrera,codigoAlumno,codigoAsignatura,codigoNota);
                                     System.out.println("Asignatura eliminada.");
                                     do {
                                         System.out.println("Ingrese la opcion que corresponda:");
@@ -653,63 +648,59 @@ class Main {
                                 } while (repetir == true);
                                 break;
 
-							//VER RANKING
-							case 5:
-								do{
-									System.out.println("Ingrese la opcion que corresponda:");
-									System.out.println("	0. Mostrar alumnos con el mejor promedio");
-									System.out.println("	1. Mostrar alumnos por promedio especifico");
-									opcionRanking = sc.nextInt();
-								}while(opcionRanking<0 || opcionRanking>1);
-								
-								switch(opcionRanking){
-									//MOSTRAR ALUMNOS CON MEJOR PROMEDIO
-									case 0:
-										System.out.println("Ingrese el codigo de la escuela");
-										//mostrarEscuelas
-										codigoEscuela = sc.nextInt();
-										System.out.println("Ingrese el codigo de la carrera");
-										//mostrarCarreras(codigoEscuela);
-										codigoCarrera = sc.nextInt();
-										System.out.println("Ingrese el codigo de la asignatura");
-										//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
-										codigoAsignatura = sc.nextInt();
-										//mostrarAlumnosConPromedioSuperior(codigoEscuela,codigoCarrera,codigoAsignatura);
-										break;
+                            //VER RANKING
+                            case 5:
+                                do{
+                                    System.out.println("Ingrese la opcion que corresponda:");
+                                    System.out.println("	0. Mostrar alumnos con el mejor promedio");
+                                    System.out.println("	1. Mostrar alumnos por promedio especifico");
+                                    opcionRanking = sc.nextInt();
+                                }while(opcionRanking<0 || opcionRanking>1);
 
-									//MOSTRAR ALUMNOS CON UN PROMEDIO DETERMINADO POR USUARIO
-									case 1:
-										System.out.println("Ingrese el codigo de la escuela");
-										//mostrarEscuelas
-										codigoEscuela = sc.nextInt();
-										System.out.println("Ingrese el codigo de la carrera");
-										//mostrarCarreras(codigoEscuela);
-										codigoCarrera = sc.nextInt();
-										System.out.println("Ingrese el codigo de la asignatura");
-										//mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
-										codigoAsignatura = sc.nextInt();
-										do{
-											System.out.println("Ingrese el valor del promedio de notas que desea buscar.");
-											System.out.println("Valores permitidos entre 1.0 y 7.0. Recuerde separar los decimales con punto (.)");
-											System.out.println("Ejemplo: Si quiere buscar alumnos con promedio=5 debera escribir 5.0");
-											nota = sc.nextFloat();
-										}while(nota<1.0 || nota>7.0);
-										//mostrarAlumnosConPromedioDeterminado(codigoEscuela,codigoCarrera,codigoAsignatura,nota);
-										break;
-								}
-								break;
-							
-							//VOLVER AL MENU PRINCIPAL
-							case 0: 
-								break;
+                                switch(opcionRanking){
+                                    //MOSTRAR ALUMNOS CON MEJOR PROMEDIO
+                                    case 0:
+                                        System.out.println("Ingrese el codigo de la escuela");
+                                        //mostrarEscuelas
+                                        codigoEscuela = sc.nextInt();
+                                        System.out.println("Ingrese el codigo de la carrera");
+                                        //mostrarCarreras(codigoEscuela);
+                                        codigoCarrera = sc.nextInt();
+                                        System.out.println("Ingrese el codigo de la asignatura");
+                                        //mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
+                                        codigoAsignatura = sc.nextInt();
+                                        //mostrarAlumnosConPromedioSuperior(codigoEscuela,codigoCarrera,codigoAsignatura);
+                                        break;
+
+                                    //MOSTRAR ALUMNOS CON UN PROMEDIO DETERMINADO POR USUARIO
+                                    case 1:
+                                        System.out.println("Ingrese el codigo de la escuela");
+                                        //mostrarEscuelas
+                                        codigoEscuela = sc.nextInt();
+                                        System.out.println("Ingrese el codigo de la carrera");
+                                        //mostrarCarreras(codigoEscuela);
+                                        codigoCarrera = sc.nextInt();
+                                        System.out.println("Ingrese el codigo de la asignatura");
+                                        //mostrarAsignaturasPorAlumno(codigoEscuela,codigoCarrera,codigoAlumno);
+                                        codigoAsignatura = sc.nextInt();
+                                        System.out.println("Ingrese el promedio de nota que desea buscar. Valores entre 1.0 y 7.0. Recuerde separar los decimales con punto (.)");
+                                        nota = sc.nextFloat();
+                                        //mostrarAlumnosConPromedioDeterminado(codigoEscuela,codigoCarrera,codigoAsignatura,nota);
+                                        break;
+                                }
+                                break;
+
+                            //VOLVER AL MENU PRINCIPAL
+                            case 0:
+                                break;
                         }
-                    	break;
+                        break;
 
-					//SALIR
-					case 0:
-						salir = true;
-						System.out.println("Gracias por usar nuestro sistema de gestion del Instituto Hardware");
-						break;
+                    //SALIR
+                    case 0:
+                        salir = true;
+                        System.out.println("Gracias por usar nuestro sistema de gestion del Instituto Hardware");
+                        break;
                 }
             }
         } while ((opcionPrincipal>5 || opcionPrincipal<0) || salir==false);
@@ -790,7 +781,8 @@ System.out.flush();
 
 
 //PREGUNTAS PARA LA PROFE
- - listaAsignaturas:  crear dos variables que sean de la misma clase/tipo para retornarla. Rompe encapsulamiento?
- 
- 
+ - presentacion en que enfocar
+ - fichero en caso de nombre
+ - avisar lo hablado con ayudante
+ - preguntar funcionalidades extras
 */
