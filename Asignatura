@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Asignatura {
 
     private int codigo;
@@ -11,11 +13,15 @@ public class Asignatura {
         this.nombre = nombre;
     }
 
-
-    //---------------------------------------METODOS---------------------------------------//
+    //---------------------------------------GETTERS Y SETTERS---------------------------------------//
 //GETCODIGO
     public int getCodigo () {
         return codigo;
+    }
+
+//GET NOMBRE
+    public String getNombre () {
+        return nombre;
     }
 
     //SETNOMBRE
@@ -27,13 +33,13 @@ public class Asignatura {
 
     //---------------------------------------METODOS ALUMNOS---------------------------------------//
 //AGREGAR ALUMNO
-    public boolean agregarAlumno (Alumno nuevo) {
-        return listaAlumnos.agregarAlumno(nuevo);
+    public boolean agregarAlumno (String rut, String nombreAlumno) {
+        return listaAlumnos.agregarAlumno(rut, nombreAlumno);
     }
 
 //EDITAR ALUMNO
-    public boolean editarAlumno (String rut, String nombre) {
-        return listaAlumnos.editarAlumno(rut, nombre);
+    public boolean editarAlumno (String rut, String nombreAlumno) {
+        return listaAlumnos.editarAlumno(rut, nombreAlumno);
     }
 
 //ELIMINAR ALUMNO
@@ -41,19 +47,25 @@ public class Asignatura {
         return listaAlumnos.eliminarAlumno(rut);
     }
 
+//IMPRIMIR ALUMNO
+    public boolean mostrarAlumnos(){
+        System.out.println("    RUT     NOMBRE");
+        return listaAlumnos.mostrarAlumnos();
+    }
+
     //---------------------------------------METODOS NOTA---------------------------------------//
 //AGREGAR NOTA
-    public boolean agregarNota (double nuevaNota, String rut) {
-        return listaAlumnos.agregarNota(nuevaNota, rut);
+    public boolean agregarNota (String rut, double nuevaNota) {
+        return listaAlumnos.agregarNota(rut, nuevaNota);
     }
 
 //EDITAR NOTA
-    public boolean editarNota (double notaReferencia, double nuevaNota, String rut) {
-        return listaAlumnos.editarNota(notaReferencia, nuevaNota, rut);
+    public boolean editarNota (String rut, double notaReferencia, double nuevaNota) {
+        return listaAlumnos.editarNota(rut, notaReferencia, nuevaNota);
     }
 
 //ELIMINAR NOTA
-    public boolean eliminarNota (double notaReferencia, String rut) {
-        return listaAlumnos.eliminarNota(notaReferencia, rut);
+    public boolean eliminarNota (String rut, double notaReferencia) {
+        return listaAlumnos.eliminarNota(rut, notaReferencia);
     }
 }

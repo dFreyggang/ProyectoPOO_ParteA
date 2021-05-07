@@ -17,8 +17,8 @@ public class Carrera {
         return codigo;
     }
 
-    //GETNOMBRE
-    public String getNombre() {
+    //GET NOMBRE
+    public String getNombre () {
         return nombre;
     }
 
@@ -30,51 +30,62 @@ public class Carrera {
 
     //---------------------------------------METODOS ASIGNATURA---------------------------------------//
 //AGREGAR ASIGNATURA
-    public boolean agregarAsignatura(Asignatura nuevo) {
-        return listaAsignaturas.agregarAsignatura(nuevo);
+    public boolean agregarAsignatura(int codigoAsignatura, String nombreAsignatura) {
+        return listaAsignaturas.agregarAsignatura(codigoAsignatura, nombreAsignatura);
     }
 
     //EDITAR ASIGNATURA
-    public boolean editarAsignatura(int codigo, String nombre) {
-        return listaAsignaturas.editarAsignatura(codigo, nombre);
+    public boolean editarAsignatura(int codigoAsignatura, String nombreAsignatura) {
+        return listaAsignaturas.editarAsignatura(codigoAsignatura, nombreAsignatura);
     }
 
     //ELIMINAR ASIGNATURA
-    public boolean eliminarAsignatura(int codigo) {
-        return listaAsignaturas.eliminarAsignatura(codigo);
+    public boolean eliminarAsignatura(int codigoAsignatura) {
+        return listaAsignaturas.eliminarAsignatura(codigoAsignatura);
+    }
+
+    //IMPRIMIR ASIGNATURAS
+    public boolean mostrarAsignaturas() {
+        System.out.println("");
+        return listaAsignaturas.mostrarAsignaturas();
     }
 
 
     //---------------------------------------METODOS ALUMNO---------------------------------------//
 //AGREGAR ALUMNO
-    public boolean agregarAlumno (Alumno nuevo, int codigo) {
-        return listaAsignaturas.agregarAlumno(nuevo,codigo);
+    public boolean agregarAlumno (int codigoAsignatura, String rut, String nombreAlumno) {
+        return listaAsignaturas.agregarAlumno(codigoAsignatura,rut, nombreAlumno);
     }
 
     //EDITAR ALUMNO
-    public boolean editarAlumno (String rut, String nombre, int codigo) {
-        return listaAsignaturas.editarAlumno(rut, nombre, codigo);
+    public boolean editarAlumno (int codigoAsignatura, String rut, String nombreAlumno) {
+        return listaAsignaturas.editarAlumno(codigoAsignatura,rut, nombreAlumno);
     }
 
     //ELIMINAR ALUMNO
-    public boolean eliminarAlumno (String rut, int codigo) {
-        return listaAsignaturas.eliminarAlumno(rut, codigo);
+    public boolean eliminarAlumno (int codigoAsignatura, String rut) {
+        return listaAsignaturas.eliminarAlumno(codigoAsignatura, rut);
+    }
+
+    //IMPRIMIR
+    public boolean mostrarAlumnos(int codigoAsignatura) {
+        return listaAsignaturas.mostrarAlumnos(codigoAsignatura);
     }
 
 
     //---------------------------------------METODOS NOTA---------------------------------------//
 //AGREGAR NOTA
-    public boolean agregarNota (double nuevaNota, String rut, int codigoAsignatura) {
-        return listaAsignaturas.agregarNota(nuevaNota, rut, codigoAsignatura);
+    public boolean agregarNota (int codigoAsignatura, String rut, double nuevaNota) {
+        return listaAsignaturas.agregarNota(codigoAsignatura, rut, nuevaNota);
     }
 
     //EDITAR NOTA
-    public boolean editarNota (double notaReferencia, double nuevaNota, String rut, int codigoAsignatura) {
-        return listaAsignaturas.editarNota(notaReferencia, nuevaNota, rut, codigoAsignatura);
+    public boolean editarNota (int codigoAsignatura, String rut, double notaReferencia, double nuevaNota) {
+        return listaAsignaturas.editarNota(codigoAsignatura, rut, notaReferencia, nuevaNota);
     }
 
     //ELIMINAR NOTA
-    public boolean eliminarNota (double notaReferencia, String rut, int codigoAsignatura) {
-        return listaAsignaturas.eliminarNota(notaReferencia, rut, codigoAsignatura);
+    public boolean eliminarNota (int codigoAsignatura, String rut, double notaReferencia) {
+        return listaAsignaturas.eliminarNota(codigoAsignatura, rut, notaReferencia);
     }
 }

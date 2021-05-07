@@ -6,7 +6,6 @@ public class Alumno {
     private String nombre;
     private ArrayList<Double> notas;
 
-
     //---------------------------------------CONSTRUCTOR---------------------------------------//
     public Alumno (String rut, String nombre, int cantAlumnos, int cantNotas) {
         this.rut = rut;
@@ -29,6 +28,11 @@ public class Alumno {
     //SETNOMBRE
     public void setNombre (String nombre) {
         this.nombre = nombre;
+    }
+
+    //GETRUT
+    public void setRut (String rut) {
+        this.rut = rut;
     }
 
 
@@ -72,3 +76,5 @@ public class Alumno {
         return promedio;
     }
 }
+
+

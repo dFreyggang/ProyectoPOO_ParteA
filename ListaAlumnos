@@ -20,11 +20,12 @@ public class ListaAlumnos {
     }
 
     //AGREGAR ALUMNO
-    public boolean agregarAlumno (Alumno nuevo) {
-        if ((nuevo != null) && (!buscarAlumno(nuevo.getRut()))) {
+    public boolean agregarAlumno (String rut, String nombreAlumno) {
+        if (!buscarAlumno(rut)) {
             for (int i = 0; i < listaAlumnos.length; i++) {
                 if (listaAlumnos[i] == null) {
-                    listaAlumnos[i] = nuevo;
+                    listaAlumnos[i].setRut(rut);
+                    listaAlumnos[i].setNombre(nombreAlumno);
                     return true;
                 }
             }
@@ -33,10 +34,10 @@ public class ListaAlumnos {
     }
 
     //EDITAR ALUMNO
-    public boolean editarAlumno (String rut, String nombre) {
+    public boolean editarAlumno (String rut, String nombreAlumno) {
         for (int i = 0; i < listaAlumnos.length; i++) {
             if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null) {
-                listaAlumnos[i].setNombre(nombre);
+                listaAlumnos[i].setNombre(nombreAlumno);
                 return true;
             }
         }
@@ -54,12 +55,22 @@ public class ListaAlumnos {
         return false;
     }
 
+    //MOSTRAR ALUMNOS
+    public boolean mostrarAlumnos(){
+        for(int i=0 ; i < listaAlumnos.length;i++){
+            if (listaAlumnos[i] != null) {
+                System.out.println("    "+ listaAlumnos[i].getRut() + "     "+listaAlumnos[i].getNombre());
+            }
+        }
+        return true;
+    }
+
 
     //---------------------------------------METODOS NOTA EN UN ALUMNO---------------------------------------//
 //AGREGAR SOLO POR ALUMNO
-    public boolean agregarNota (double nuevaNota, String rut) {
+    public boolean agregarNota (String rut, double nuevaNota) {
         for (int i = 0; i < listaAlumnos.length; i++) {
-            if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null) {
+            if (listaAlumnos[i].getRut().equals(rut)) {
                 return listaAlumnos[i].agregarNota(nuevaNota);
             }
         }
@@ -67,7 +78,7 @@ public class ListaAlumnos {
     }
 
     //EDITAR SOLO POR ALUMNO
-    public boolean editarNota (double notaReferencia, double nuevaNota, String rut) {
+    public boolean editarNota (String rut, double notaReferencia, double nuevaNota) {
         for (int i = 0; i < listaAlumnos.length; i++) {
             if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null ) {
                 return listaAlumnos[i].editarNota(notaReferencia, nuevaNota);
@@ -77,14 +88,15 @@ public class ListaAlumnos {
     }
 
     //ELIMINAR SOLO POR ALUMNO
-    public boolean eliminarNota (double notaReferencia, String rut) {
+    public boolean eliminarNota (String rut, double notaReferencia) {
         for (int i = 0; i < listaAlumnos.length; i++) {
             if (listaAlumnos[i].getRut().equals(rut) && listaAlumnos[i] != null) {
-                return listaAlumnos[i].eliminarNota(notaReferencia);
+                listaAlumnos[i].eliminarNota(notaReferencia);
             }
         }
         return false;
     }
+
 
     //RANKING DE ALUMNOS POR ASIGNATURA
     public String [][] rankingNotas (){
@@ -134,4 +146,4 @@ public class ListaAlumnos {
 
         return ranking;
     }
-}    
+}

@@ -2,27 +2,27 @@ public class ListaEscuelas {
 
     private Escuela listaEscuelas[];
 
-//---------------------------------------CONSTRUCTOR---------------------------------------//
-    public ListaEscuelas (int cantEscuelas) {
+    //---------------------------------------CONSTRUCTOR---------------------------------------//
+    public ListaEscuelas(int cantEscuelas) {
         this.listaEscuelas = new Escuela[cantEscuelas];
     }
 
 
-//---------------------------------------METODOS ESCUELA---------------------------------------//
-    public boolean buscarEscuela (int codigo) {
+    //---------------------------------------METODOS ESCUELA---------------------------------------//
+    public boolean buscarEscuela(int codigoEscuela) {
         for (int i = 0; i < listaEscuelas.length; i++) {
-            if (listaEscuelas[i] != null && listaEscuelas[i].getCodigo() == codigo) {
+            if (listaEscuelas[i] != null && listaEscuelas[i].getCodigo() == codigoEscuela) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean agregarEscuela (Escuela nuevo) {
-        if (nuevo != null && !buscarEscuela(nuevo.getCodigo())) {
+    public boolean agregarEscuela(int codigoEscuela, String nombreEscuela) {
+        if (!buscarEscuela(codigoEscuela)) {
             for (int i = 0; i < listaEscuelas.length; i++) {
                 if (listaEscuelas[i] == null) {
-                    listaEscuelas[i] = nuevo;
+                    listaEscuelas[i].setNombre(nombreEscuela);
                     return true;
                 }
             }
@@ -30,19 +30,19 @@ public class ListaEscuelas {
         return false;
     }
 
-    public boolean editarEscuela (int codigo, String nombre) {
+    public boolean editarEscuela(int codigoEscuela, String nombreEscuela) {
         for (int i = 0; i < listaEscuelas.length; i++) {
-            if (listaEscuelas[i] != null && listaEscuelas[i].getCodigo() == codigo) {
-                listaEscuelas[i].setNombre(nombre);
+            if (listaEscuelas[i] != null && listaEscuelas[i].getCodigo() == codigoEscuela) {
+                listaEscuelas[i].setNombre(nombreEscuela);
                 return true;
             }
         }
-        return  false;
+        return false;
     }
 
-    public boolean eliminarEscuela (int codigo) {
+    public boolean eliminarEscuela(int codigoEscuela) {
         for (int i = 0; i < listaEscuelas.length; i++) {
-            if (listaEscuelas[i] != null && listaEscuelas[i].getCodigo() == codigo) {
+            if (listaEscuelas[i] != null && listaEscuelas[i].getCodigo() == codigoEscuela) {
                 listaEscuelas[i] = null;
                 return true;
             }
@@ -50,11 +50,164 @@ public class ListaEscuelas {
         return false;
     }
 
+    public boolean mostrarEscuelas() {
+        String hola = null;
+        for (int i = 0; i < listaEscuelas.length; i++) {
+
+            if (listaEscuelas[i] != null) {
+                hola = hola + listaEscuelas[i].getNombre() + " " + listaEscuelas[i].getCodigo();
+                //System.out.println("    "+i+1+"     "+listaEscuelas[i].getNombre());
+            }
+        }
+        return hola;
+    }
+
+
 //---------------------------------------METODOS CARRERA POR ESCUELA---------------------------------------//
+
+    public boolean agregarCarrera (int codigoEscuela, int codigoCarrera, String nombreCarrera){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].agregarCarrera(codigoCarrera, nombreCarrera);
+            }
+        }
+        return false;
+    }
+
+    public boolean editarCarrera (int codigoEscuela, int codigoCarrera, String nombreCarrera){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].editarCarrera(codigoCarrera, nombreCarrera);
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarCarrera (int codigoEscuela, int codigoCarrera){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].eliminarCarrera(codigoCarrera);
+            }
+        }
+        return false;
+    }
+
+    public boolean mostrarCarreras(int codigoEscuela) {
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].mostrarCarreras();
+            }
+        }
+        return true;
+    }
+
 
 //---------------------------------------METODOS ASIGNATURAS---------------------------------------//
 
+    public boolean agregarAsignatura(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String nombreAsignatura){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].agregarAsignatura(codigoCarrera, codigoAsignatura, nombreAsignatura);
+            }
+        }
+        return false;
+    }
+
+    public boolean editarAsignatura(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String nombreAsignatura){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].editarAsignatura(codigoCarrera, codigoAsignatura, nombreAsignatura);
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarAsignatura(int codigoEscuela, int codigoCarrera, int codigoAsignatura){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].eliminarAsignatura(codigoCarrera, codigoAsignatura);
+            }
+        }
+        return false;
+    }
+
+    public boolean mostrarAsignaturas(int codigoEscuela, int codigoCarrera) {
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].mostrarAsignaturas(codigoCarrera);
+            }
+        }
+        return false;
+    }
+
 //---------------------------------------METODOS ALUMNOS---------------------------------------//
 
+    public boolean agregarAlumno(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, String nombreAlumno){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].agregarAlumno(codigoCarrera, codigoAsignatura, rut, nombreAlumno);
+            }
+        }
+        return false;
+    }
+
+    public boolean editarAlumno(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, String nombreAlumno){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].editarAlumno(codigoCarrera, codigoAsignatura, rut, nombreAlumno);
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarAlumno(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut){
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].eliminarAlumno(codigoCarrera, codigoAsignatura, rut);
+            }
+        }
+        return false;
+    }
+
+    public boolean mostrarAlumnos(int codigoEscuela, int codigoCarrera, int codigoAsignatura) {
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].mostrarAlumnos(codigoCarrera, codigoAsignatura);
+            }
+        }
+        return false;
+    }
+
+
 //---------------------------------------METODOS NOTAS---------------------------------------//
+
+    //AGREGAR NOTA
+    public boolean agregarNota(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, double nuevaNota) {
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].agregarNota(codigoCarrera, codigoAsignatura, rut, nuevaNota);
+            }
+        }
+        return false;
+    }
+
+    //EDITAR NOTA
+    public boolean editarNota(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, double notaReferencia, double nuevaNota) {
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].editarNota(codigoCarrera, codigoAsignatura, rut, notaReferencia, nuevaNota);
+            }
+        }
+        return false;
+    }
+
+    //ELIMINAR NOTA
+    public boolean eliminarNota(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, double notaReferencia) {
+        for (int i = 0; i < listaEscuelas.length; i++) {
+            if (listaEscuelas[i].getCodigo() == codigoEscuela) {
+                return listaEscuelas[i].eliminarNota(codigoCarrera, codigoAsignatura, rut, notaReferencia);
+            }
+        }
+        return false;
+    }
 }

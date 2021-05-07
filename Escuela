@@ -16,35 +16,86 @@ public class Escuela {
         return codigo;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setCodigo (int codigo) {
-        this.codigo = codigo;
-    }
+    //GET NOMBRE
+    public String getNombre () { return nombre; }
 
     public void setNombre (String nombre) {
         this.nombre = nombre;
     }
 
 //---------------------------------------METODOS CARRERA---------------------------------------//
-    public boolean agregarCarrera (Carrera nuevo) {
-        return listaCarrera.agregarCarrera(nuevo);
+    public boolean agregarCarrera (int codigoCarrera, String nombreCarrera) {
+        return listaCarrera.agregarCarrera(codigoCarrera, nombreCarrera);
     }
 
-    public boolean editarCarrera (Carrera nuevo) {
-        return  listaCarrera.editarCarrera(nuevo.getCodigo(), nuevo.getNombre());
+    public boolean editarCarrera (int codigoCarrera, String nombreCarrera) {
+        return  listaCarrera.editarCarrera(codigoCarrera, nombreCarrera);
     }
 
-    public boolean eliminarCarrera (Carrera nuevo) {
-        return listaCarrera.eliminarCarrera(nuevo.getCodigo());
+    public boolean eliminarCarrera (int codigoCarrera) {
+        return listaCarrera.eliminarCarrera(codigoCarrera);
+    }
+
+    public boolean mostrarCarreras(){
+        System.out.println("    CODIGO      NOMBRE");
+        return listaCarrera.mostrarCarreras();
     }
 
 //---------------------------------------METODOS ASIGNATURA---------------------------------------//
 
+    public boolean agregarAsignatura(int codigoCarrera, int codigoAsignatura, String nombreAsignatura) {
+        return listaCarrera.agregarAsignatura(codigoCarrera, codigoAsignatura, nombreAsignatura);
+    }
+
+    //EDITAR ASIGNATURA
+    public boolean editarAsignatura(int codigoCarrera, int codigoAsignatura, String nombreAsignatura) {
+        return listaCarrera.editarAsignatura(codigoCarrera, codigoAsignatura, nombreAsignatura);
+    }
+
+    //ELIMINAR ASIGNATURA
+    public boolean eliminarAsignatura(int codigoCarrera, int codigoAsignatura) {
+        return listaCarrera.eliminarAsignatura(codigoCarrera, codigoAsignatura);
+    }
+
+    //IMPRIMIR
+    public boolean mostrarAsignaturas(int codigoCarrera){
+        return listaCarrera.mostrarAsignaturas(codigoCarrera);
+    }
+
+
 //---------------------------------------METODOS ALUMNO---------------------------------------//
+
+    public boolean agregarAlumno(int codigoCarrera, int codigoAsignatura, String rut, String nombreAlumno) {
+        return listaCarrera.agregarAlumno(codigoCarrera, codigoAsignatura, rut, nombreAlumno);
+    }
+
+    //EDITAR ALUMNO
+    public boolean editarAlumno(int codigoCarrera, int codigoAsignatura, String rut, String nombreAlumno) {
+        return listaCarrera.editarAlumno(codigoCarrera, codigoAsignatura, rut, nombreAlumno);
+    }
+
+    //ELIMINAR ALUMNO
+    public boolean eliminarAlumno(int codigoCarrera, int codigoAsignatura, String rut) {
+        return listaCarrera.eliminarAlumno(codigoCarrera, codigoAsignatura, rut);
+    }
+
+    //IMPRIMIR
+    public boolean mostrarAlumnos(int codigoCarrera, int codigoAsignatura){
+        return listaCarrera.mostrarAlumnos(codigoCarrera, codigoAsignatura);
+    }
+
 
 //---------------------------------------METODOS NOTA---------------------------------------//
 
+    public boolean agregarNota (int codigoCarrera, int codigoAsignatura, String rut, double nuevaNota){
+        return listaCarrera.agregarNota(codigoCarrera, codigoAsignatura, rut, nuevaNota);
+    }
+
+    public boolean editarNota (int codigoCarrera, int codigoAsignatura, String rut, double notaReferencia, double nuevaNota){
+        return listaCarrera.editarNota(codigoCarrera, codigoAsignatura, rut, notaReferencia, nuevaNota);
+    }
+
+    public boolean eliminarNota (int codigoCarrera, int codigoAsignatura, String rut, double notaReferencia){
+        return listaCarrera.eliminarNota(codigoCarrera, codigoAsignatura, rut, notaReferencia);
+    }
 }
