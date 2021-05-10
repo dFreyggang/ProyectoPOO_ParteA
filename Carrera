@@ -30,8 +30,8 @@ public class Carrera {
 
     //---------------------------------------METODOS ASIGNATURA---------------------------------------//
 //AGREGAR ASIGNATURA
-    public boolean agregarAsignatura(int codigoAsignatura, String nombreAsignatura) {
-        return listaAsignaturas.agregarAsignatura(codigoAsignatura, nombreAsignatura);
+    public boolean agregarAsignatura(Asignatura nuevo) {
+        return listaAsignaturas.agregarAsignatura(nuevo);
     }
 
     //EDITAR ASIGNATURA
@@ -45,16 +45,15 @@ public class Carrera {
     }
 
     //IMPRIMIR ASIGNATURAS
-    public boolean mostrarAsignaturas() {
-        System.out.println("");
+    public String mostrarAsignaturas() {
         return listaAsignaturas.mostrarAsignaturas();
     }
 
 
     //---------------------------------------METODOS ALUMNO---------------------------------------//
 //AGREGAR ALUMNO
-    public boolean agregarAlumno (int codigoAsignatura, String rut, String nombreAlumno) {
-        return listaAsignaturas.agregarAlumno(codigoAsignatura,rut, nombreAlumno);
+    public boolean agregarAlumno (int codigoAsignatura, Alumno nuevo) {
+        return listaAsignaturas.agregarAlumno(codigoAsignatura, nuevo);
     }
 
     //EDITAR ALUMNO
@@ -68,7 +67,7 @@ public class Carrera {
     }
 
     //IMPRIMIR
-    public boolean mostrarAlumnos(int codigoAsignatura) {
+    public String mostrarAlumnos(int codigoAsignatura) {
         return listaAsignaturas.mostrarAlumnos(codigoAsignatura);
     }
 
@@ -87,5 +86,12 @@ public class Carrera {
     //ELIMINAR NOTA
     public boolean eliminarNota (int codigoAsignatura, String rut, double notaReferencia) {
         return listaAsignaturas.eliminarNota(codigoAsignatura, rut, notaReferencia);
+    }
+
+    public String mostrarNotas(int codigoAsignatura, String rutAlumno) {
+        return listaAsignaturas.mostrarNotas(codigoAsignatura, rutAlumno);
+    }
+    public String mostrarRanking(int codigoAsignatura) {
+        return listaAsignaturas.mostrarRanking(codigoAsignatura);
     }
 }

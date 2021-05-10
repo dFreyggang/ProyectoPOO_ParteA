@@ -13,8 +13,8 @@ public class Instituto {
 
 
 //---------------------------------------METODOS ESCUELA---------------------------------------//
-    public boolean agregarEscuela (int codigoEscuela, String nombreEscuela) {
-        return listaEscuela.agregarEscuela(codigoEscuela, nombreEscuela);
+    public boolean agregarEscuela (Escuela nuevo) {
+        return listaEscuela.agregarEscuela(nuevo);
     }
 
     public boolean editarEscuela (int codigoEscuela, String nombreEscuela) {
@@ -25,14 +25,13 @@ public class Instituto {
         return listaEscuela.eliminarEscuela(codigoEscuela);
     }
 
-    public boolean mostrarEscuelas() {
-        System.out.println("    CODIGO      NOMBRE");
+    public String mostrarEscuelas() {
         return listaEscuela.mostrarEscuelas();
     }
 
     //---------------------------------------METODOS CARRERA---------------------------------------//
-    public boolean agregarCarrera (int codigoEscuela, int codigoCarrera, String nombreCarrera){
-        return listaEscuela.agregarCarrera(codigoEscuela, codigoCarrera, nombreCarrera);
+    public boolean agregarCarrera (int codigoEscuela, Carrera nuevo){
+        return listaEscuela.agregarCarrera(codigoEscuela, nuevo);
     }
 
     public boolean editarCarrera (int codigoEscuela, int codigoCarrera, String nombreCarrera){
@@ -43,13 +42,13 @@ public class Instituto {
         return listaEscuela.eliminarCarrera(codigoEscuela, codigoCarrera);
     }
 
-    public boolean mostrarCarreras(int codigoEscuela){
+    public String mostrarCarreras(int codigoEscuela){
         return listaEscuela.mostrarCarreras(codigoEscuela);
     }
 
     //---------------------------------------METODOS ASIGNATURA---------------------------------------//
-    public boolean agregarAsignatura (int codigoEscuela, int codigoCarrera, int codigoAsignatura, String nombreAsignatura){
-        return listaEscuela.agregarAsignatura(codigoEscuela, codigoCarrera, codigoAsignatura, nombreAsignatura);
+    public boolean agregarAsignatura (int codigoEscuela, int codigoCarrera, Asignatura nuevo){
+        return listaEscuela.agregarAsignatura(codigoEscuela, codigoCarrera, nuevo);
     }
     public boolean editarAsignatura (int codigoEscuela, int codigoCarrera, int codigoAsignatura, String nombreAsignatura){
         return listaEscuela.editarAsignatura(codigoEscuela, codigoCarrera, codigoAsignatura, nombreAsignatura);
@@ -58,13 +57,13 @@ public class Instituto {
         return listaEscuela.eliminarAsignatura(codigoEscuela, codigoCarrera, codigoAsignatura);
     }
 
-    public boolean mostrarAsignaturas(int codigoEscuela, int codigoCarrera){
+    public String mostrarAsignaturas(int codigoEscuela, int codigoCarrera){
         return listaEscuela.mostrarAsignaturas(codigoEscuela,codigoCarrera);
     }
 
     //---------------------------------------METODOS ALUMNO---------------------------------------//
-    public boolean agregarAlumno(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, String nombreAlumno){
-        return listaEscuela.agregarAlumno(codigoEscuela, codigoCarrera, codigoAsignatura, rut, nombreAlumno);
+    public boolean agregarAlumno(int codigoEscuela, int codigoCarrera, int codigoAsignatura, Alumno nuvo){
+        return listaEscuela.agregarAlumno(codigoEscuela, codigoCarrera, codigoAsignatura, nuevo);
     }
     public boolean editarAlumno (int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, String nombreAlumno){
         return listaEscuela.editarAlumno(codigoEscuela, codigoCarrera, codigoAsignatura, rut, nombreAlumno);
@@ -72,7 +71,7 @@ public class Instituto {
     public boolean eliminarAlumno (int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut){
         return listaEscuela.eliminarAlumno(codigoEscuela, codigoCarrera, codigoAsignatura, rut);
     }
-    public boolean mostrarAlumnos(int codigoEscuela, int codigoCarrera, int codigoAsignatura){
+    public String mostrarAlumnos(int codigoEscuela, int codigoCarrera, int codigoAsignatura){
         return listaEscuela.mostrarAlumnos(codigoEscuela,codigoCarrera,codigoAsignatura);
     }
 
@@ -85,5 +84,11 @@ public class Instituto {
     }
     public boolean eliminarNota(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rut, double notaReferencia){
         return listaEscuela.eliminarNota(codigoEscuela, codigoCarrera, codigoAsignatura, rut, notaReferencia);
+    }
+    public String mostrarNotas(int codigoEscuela, int codigoCarrera, int codigoAsignatura, String rutAlumno){
+        return listaEscuela.mostrarNotas(codigoEscuela, codigoCarrera, codigoAsignatura, rutAlumno);
+    }
+    public String mostrarRanking(int codigoEscuela, int codigoCarrera, int codigoAsignatura){
+        return listaEscuela.mostrarRanking(codigoEscuela, codigoCarrera, codigoAsignatura);
     }
 }
